@@ -735,6 +735,7 @@ footer-left img {
 
   footer {
     padding: 20px 30px;
+    height:60vh;
   }
 
 
@@ -798,7 +799,7 @@ footer-left img {
 
   footer {
     padding: 20px 50px;
-        
+          height:60vh;
     font-family: "Lexend Deca", sans-serif;
   }
 
