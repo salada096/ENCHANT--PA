@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@700&family=Lexend+Deca:wght@400&display=swap");
+
+body {
+  font-family: "Lexend Deca", sans-serif;
+  background-color: #FFFFFF;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  width: auto;
+}
+
+.inicio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 100px;
+}
+
+.inicio h1 {
+  font-family: "Passion One", cursive;
+  font-size: 32px;
+  color: #593C1C;
+  margin: 0;
+}
+
+.gerar-relatorio {
+  background-color: #EDD9C7;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+.container {
+  background-color: #FFF;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: calc(100% - 300px);
+  max-width: 2200px;
+  margin-left: 150px;
+  margin-right: 150px;
+  box-sizing: border-box;
+}
+
+.historico-doacoes h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.coluna-relatorios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.botao-relatorio {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 16px;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.botao-relatorio:hover {
+  text-decoration: underline;
+}
+
+.item-relatorio {
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.icone-pdf {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.detalhes-relatorio {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.detalhes-relatorio p {
+  margin: 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detalhes-relatorio .tipo-documento {
+  color: #777;
+  font-size: 14px;
+}
+
+.detalhes-relatorio .tamanho-arquivo {
+  color: #555;
+  font-size: 14px;
+}
+
+@media (min-width: 1200px){}
+
+@media (max-width: 768px) {
+  .inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  body {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .container {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: auto;
+    max-width: 90%;
+  }
+
+  .gerar-relatorio {
+    font-size: 14px; 
+    padding: 8px 16px; 
+  }
+
+  .coluna-relatorios {
+    grid-template-columns: 1fr;
+  }
+
+  .item-relatorio {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icone-pdf {
+    width: 60px; 
+    margin-bottom: 5px;
+  }
+
+  .detalhes-relatorio {
+    padding: 10px;
+  }
+
+  .detalhes-relatorio p {
+    font-size: 12px; 
+  }
+
+  .detalhes-relatorio .tipo-documento,
+  .detalhes-relatorio .tamanho-arquivo {
+    font-size: 12px; 
+  }
+}
+
+@media (max-width: 500px) {
+  .inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  body {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .container {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: auto;
+    max-width: 95%;
+  }
+
+  .gerar-relatorio {
+    font-size: 12px; 
+    padding: 10px 12px; 
+  }
+
+  .coluna-relatorios {
+    grid-template-columns: 1fr;
+  }
+
+  .item-relatorio {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icone-pdf {
+    width: 50px; 
+    margin-bottom: 5px;
+  }
+
+  .detalhes-relatorio {
+    padding: 8px;
+  }
+
+  .detalhes-relatorio p {
+    font-size: 15px; 
+  }
+
+  .detalhes-relatorio .tipo-documento,
+  .detalhes-relatorio .tamanho-arquivo {
+    font-size: 15px; 
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar:hover nav a span {
+    display: inline; 
+    font-size: 11px;
+  }
+
+  .sidebar:hover {
+    width: 0; 
+  }
+}

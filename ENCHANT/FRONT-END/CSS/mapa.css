@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Passion+One:wght@400;700;900&display=swap");
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.pesquisa{
+    border: 3px solid #afaba3;
+    width: 500px;
+    height: 50px;
+    font-size: 20px;
+    font-family: 'Lexend Deca';
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-left: 450px;
+    margin-right: 450px;
+    padding-left: 30px;
+   
+}
+
+input::placeholder{
+    color: #afaba3;
+}
+input:active{
+    color: rgba(0, 0, 0, 0.027);
+}
+
+.titulo{
+
+    font-family: 'Passion One';
+    font-size: 24px;
+    color: #633204;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.texto {
+  font-family: "Lexend Deca";
+  font-weight: 400;
+  color:#3E3E3E;
+  font-size: 16px;
+  text-align: justify;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 15px;
+
+}
+@media (max-width: 1024px) and (min-width: 500px) {
+  .titulo {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .texto {
+    font-size: 14px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .pesquisa {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-left: 20px;
+   
+  }
+}
+@media (max-width: 500px) {
+  .titulo {
+    font-size: 18px;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+
+  .texto {
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+
+  .pesquisa {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 10px;
+   
+  }
+    
+}
+@media (max-width: 1280px) and (min-width: 800px) {
+  .titulo {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  .texto {
+    font-size: 14px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: justify;
+  }
+
+  .pesquisa {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-left: 20px;
+   
+  }
+}

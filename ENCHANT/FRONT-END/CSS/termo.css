@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+
+
+    font-family: 'Lexend Deca';
+    font-size: 16px;
+
+
+}
+
+
+.containernomes{
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:3rem;
+ 
+    align-items: center;
+    max-width: 100%;
+    margin-top: 4rem;
+    z-index: 1000;
+}
+
+
+
+
+.imagemm{
+
+
+    margin-top: -9rem;
+    margin-right: 50rem;
+
+
+}
+
+
+.imageem{
+   
+   
+    height:100px;
+    width:100px;
+}
+ 
+ 
+
+
+.containerc{
+
+
+    width:39rem;
+    height: 6rem;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding:1.5rem;
+   
+}
+
+
+.hh{
+    font-family: "Passion One", serif;
+    margin-top: 4rem; /* Ajusta o espaçamento */
+    padding:2rem;
+    margin-left: 4rem;
+}
+
+
+.h1{
+ 
+    font-size:30px;
+    color: rgba(97, 53, 12, 1);
+    min-width: 320px;
+}
+
+
+
+
+.containercc{
+
+
+    width:39rem;
+    height: 6rem;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding:1.5rem;
+   
+   
+}
+
+
+.oo{
+
+
+    margin-right: 18rem;
+    margin-bottom: 0.5rem;
+}
+.imagens{
+   
+    margin-right: 20rem;
+}
+
+
+.imagemm2{
+    margin-top: -9rem;
+   display:flex;
+    justify-content: center;
+ 
+ 
+    margin-right: 50rem;
+}
+
+
+.esqueceu{
+    color: #EC5907;
+   
+}
+
+
+.esqueceu:hover{
+
+
+    color: #a36d40;
+    text-decoration: underline;
+   
+}
+
+
+@media (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
+  
+    .containernomes {
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+  
+    .imagemm, .imagemm2 {
+      margin-top: -6rem;
+      margin-right: 18rem;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .imageem {
+      height: 40px;
+      width: 40px;
+    }
+  
+    .hh {
+      margin-top: 2rem;
+      padding: 1rem;
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    .h1 {
+      font-size: 24px;
+    }
+  
+    .containerc, .containercc {
+      width: 90%;
+      height: auto;
+      padding: 1rem;
+      margin: 0 auto;
+    }
+  
+    .oo {
+      margin-right: 0;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+  
+    .imagens {
+      margin-right: 0;
+      text-align: center;
+    }
+  
+    .esqueceu {
+      display: block;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+}

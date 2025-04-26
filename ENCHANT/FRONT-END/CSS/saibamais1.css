@@ -1,0 +1,641 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+body {
+  background-color: #F5F5F5;
+}
+
+#fixado {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+  gap: 0.5rem;
+  margin-left: 20px;
+}
+
+.menu-lateral {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.img {
+  margin-top: -0.6rem;
+  margin-left: 1rem;
+}
+
+#dona1,
+#doap,
+#doain {
+  font-size: 14px;
+}
+
+#conteudoNavbarSuportado {
+  text-align: left;
+}
+
+.nav-centralizada {
+  gap: 1px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nav-item {
+  margin: 0 5px;
+}
+
+#icone {
+  border: none;
+  outline: none;
+}
+
+.btn-brown,
+#doeagora {
+  background-color: rgba(226, 204, 174, 1);
+  border-color: rgba(226, 204, 174, 1);
+  color: #4E3629;
+  font-weight: 700;
+  font-family: "Lexend Deca";
+}
+
+#doeagora {
+  font-size: 16px;
+  width: 9rem;
+  margin-right: 2rem;
+}
+
+#doeagora:hover {
+  background-color: #8a592c;
+  color: #FFFFFF;
+}
+body {
+  background-color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  max-width: 100%;
+  font-weight: 400;
+}
+
+main {
+  max-width: auto;
+  margin-right: 150px;
+  margin-left: 150px;
+}
+
+h1 {
+  font-family: "Passion One", sans-serif;
+  font-weight: 400;
+  color: #693B11;
+  max-width: auto;
+  margin: 50px auto;
+  font-size: 32px;
+  padding-top: 50px;
+}
+
+h2 {
+  font-family: "Passion One", sans-serif;
+  font-weight: 400;
+  color: #693B11;
+  max-width: auto;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+p {
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  color: #000000;
+  opacity: 0.6;
+  text-align: justify;
+  margin-bottom: 60px;
+}
+
+.imagem01 {
+  max-width: 100%;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 60px;
+}
+
+.LGPD {
+  color: #EC9E07;
+}
+
+ul {
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  color: #000000;
+  opacity: 0.6;
+}
+
+.politíca {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.botao1 {
+  padding: 15px 50px;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: #E2CCAE;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.botao1:hover {
+  background-color: #E2CCAE;
+  opacity: 0.8;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  justify-content: center;
+}
+
+.item {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+}
+
+.botao {
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  display: block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #E2CCAE;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+  background-color: #E2CCAE;
+  opacity: 0.8;
+  text-decoration: none;
+  color: #000000;
+}
+
+.como {
+  margin-top: 60px;
+}
+
+footer {
+  background-color: #fcf2e8;
+  padding: 20px 50px;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.footer-left {
+  max-width: 400px;
+  font-size: 12px;
+  height: 200px;
+}
+
+.footer-left p {
+  font-size: 10px;
+}
+
+footer-left img {
+  width: 200px;
+  height: auto;
+}
+
+.copyright {
+  margin-top: -30px;
+}
+
+.footer-logo {
+  margin-bottom: 10px;
+}
+
+.footer-right {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.footer-column {
+  flex: 2;
+  min-width: 200px;
+  text-align: center;
+}
+
+.footer-column h3 {
+  font-weight: 400;
+  font-size: 14px;
+  color: #535151;
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  color: #EC9E07;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+  color: #8B7777;
+}
+
+@media (max-width: 768px) {
+
+ .btn-brown {
+      width: auto;
+      padding: 5px 15px;
+      font-size: 16px;
+    }
+   
+    .img {
+      margin-left: 0;
+    }
+  
+  main {
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+
+  .imagem01 {
+    height: auto;
+  }
+
+ footer {
+    padding: 20px 30px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .footer-left {
+    max-width: 100%;
+  }
+
+  .copyright {
+    margin-bottom: 20px;
+  }
+
+  .footer-logo {
+    height: 50px;
+  }
+
+  .footer-right {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .footer-column {
+    min-width: auto;
+  }
+
+  .footer-column h3 {
+    font-weight: 400;
+    font-size: 12px;
+    color: #535151;
+    margin-bottom: 10px;
+  }
+
+  .footer-column a {
+    color: #EC9E07;
+    text-decoration: none;
+    font-size: 10px;
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 799px) {
+  .imagem01 {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 60px;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  footer {
+    padding: 20px 50px;
+    font-family: "Lexend Deca", sans-serif;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .footer-left {
+    max-width: 280px;
+  }
+
+  .footer-left p {
+    font-size: 10px;
+  }
+
+  .footer-logo {
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .footer-right {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .footer-column {
+    flex: 2;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .footer-column h3 {
+    font-weight: 400;
+    font-size: 10px;
+    color: #535151;
+    margin-bottom: 10px;
+  }
+
+  .footer-column a {
+    color: #EC9E07;
+    text-decoration: none;
+    font-size: 8px;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 150px;
+    justify-content: center;
+  }
+
+  .item {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .imagem01 {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 60px;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  footer {
+    padding: 20px 50px;
+    font-family: "Lexend Deca", sans-serif;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .footer-left {
+    max-width: 400px;
+    font-size: 12px;
+  }
+
+  .footer-logo {
+    height: 60px;
+    margin-bottom: 20px;
+  }
+
+  .footer-right {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .footer-column {
+    flex: 2;
+    min-width: 200px;
+    text-align: center;
+  }
+
+  .footer-column h3 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #535151;
+    margin-bottom: 10px;
+  }
+
+  .footer-column a {
+    color: #EC9E07;
+    text-decoration: none;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+
+  .copyright {
+    margin-top: -30px;
+  }
+}
+
+@media (min-width: 1900px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 200px;
+    justify-content: center;
+  }
+
+  .item {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+  }
+
+  .item img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+  @media (min-width: 1000px) {
+    .navbar-nav {
+      margin-left: 20px;
+      margin-right: auto;
+    }
+  }
+ 
+  @media (max-width: 1024px) {
+    .mr-auto {
+      border: none;
+    }
+
+  }
+
+@media (min-width: 1500px) {
+  footer {
+    padding: 20px 50px;
+    font-family: "Lexend Deca", sans-serif;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .footer-left {
+    max-width: 400px;
+    font-size: 12px;
+  }
+
+  .footer-logo {
+    height: 70px;
+    margin-bottom: 10px;
+  }
+
+  .footer-right {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .footer-column {
+    flex: 2;
+    min-width: 200px;
+    text-align: center;
+  }
+
+  .footer-column h3 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #535151;
+    margin-bottom: 10px;
+  }
+
+  .footer-column a {
+    color: #EC9E07;
+    text-decoration: none;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+}
+ 
+  /* Corrigido para não interferir com o comportamento do Bootstrap */
+  @media (max-width: 991px) {
+    .navbar-brand {
+      margin-right: 0;
+    }
+   
+    .navbar-toggler {
+      margin-right: 15px;
+    }
+   
+    /* Remove o alinhamento centralizado em telas menores */
+    #conteudoNavbarSuportado {
+      text-align: left !important;
+    }
+   
+    .navbar-collapse.show .navbar-nav,
+    .navbar-collapse.collapsing .navbar-nav {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+   
+    .nav-centralizada {
+      display: block;
+      width: 100%;
+      text-align: left;
+      justify-content: flex-start;
+    }
+   
+    .btn-brown {
+      margin: 10px 0;
+      justify-content: flex-start;
+      display: block;
+      margin-right: auto;
+    }
+   
+    /* Garante que os itens de dropdown também fiquem alinhados à esquerda */
+    .dropdown-menu {
+      text-align: left;
+      padding-left: 15px;
+    }
+  }

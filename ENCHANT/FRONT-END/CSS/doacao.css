@@ -1,0 +1,423 @@
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.background-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; 
+  z-index: -1;
+}
+
+.bg-icon {
+  position: absolute;
+  width: 250px; 
+  height: 200px;
+  background-image: url('imagem1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.bg-icon:nth-child(1) {
+  margin-top: 10%;
+  left: 2%;
+  transform: rotate(15deg);
+}
+
+.bg-icon:nth-child(2) {
+  margin-top: 50%;
+  right: 50%;
+  transform: rotate(-10deg);
+}
+
+.bg-icon:nth-child(3) {
+  bottom: 60%;
+  left: 70%;
+  transform: rotate(25deg);
+}
+
+.bg-icon:nth-child(4) {
+  bottom: 30%;
+  right: 2%;
+  transform: rotate(-20deg);
+}
+
+.bg-icon:nth-child(5) {
+  margin-top:  70%;
+  left: 2%;
+  transform: rotate(5deg);
+}
+
+.bg-icon:nth-child(6) {
+  top: 95%;
+  left: 70%;
+  transform: rotate(-15deg);
+}
+
+
+#titulo-inicial {
+  color: #61350C;
+  font-size: 28px;
+  font-family: 'Passion One', cursive;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.container-marrom {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  gap: 4vh;
+  margin: 50px auto;
+  justify-content: center;
+
+}
+
+
+#roupas-calcados, 
+#alimentos-ração,
+#produtos-limpeza,
+#moveis-eletrodomésticos,
+#livros-brinquedos,
+#cobertores-mais {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 300px;
+  height: 580px;
+  background: linear-gradient(to bottom, #dfd1c2f8, #e9e0d9, #f0ebe4);
+  margin-bottom: 20px;
+  padding: 15px 10px;
+  box-shadow: 
+    -8px 8px 30px rgba(155, 125, 85, 0.096),
+    8px -8px 30px rgba(155, 125, 85, 0.096);
+  border: #a1756148 solid 1px;
+  margin-top: auto;
+ 
+}
+
+.img1,
+.img2,
+.img3,
+.img4,
+.img5,
+.img6 {
+  width: 100%;
+  max-width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border: #794d2438 solid 10px;
+}
+
+.imagem {
+  display: flex;
+  margin: 15px auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.design-botao {
+  width: 160px;
+  height: 40px;
+  font-family: 'Lexend Deca', sans-serif;
+  background-color: #e2ccae;
+  border-radius: 10px;
+  border: none;
+  margin: 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: flex-end;
+  font-size: 14px;
+  font-weight: bold;
+  color: #3d2106;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.design-botao:hover {
+  background-color: #8a592c;
+  color: #ffffff;
+  transition: transform 0.2s ease;
+  transform: scale(1.1);
+}
+
+.texto-doacao {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 13px;
+  text-align: justify;
+  line-height: 22px;
+  font-weight: bold;
+  color: #3d2106;
+}
+
+.texto-doacao2 {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 12px;
+  text-align: justify;
+  line-height: 20px;
+  width: 100%;
+  margin-top: 15px;
+  width: 230px;
+  justify-content: center;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.texto-doacao2 li {
+  margin-bottom: 6px;
+}
+
+a {
+  text-decoration: none;
+  margin-top: auto;
+}
+
+/* Tablets (até 992px) */
+@media (max-width: 1000px) {
+  #roupas-calcados, 
+  #alimentos-ração,
+  #produtos-limpeza,
+  #moveis-eletrodomésticos,
+  #livros-brinquedos,
+  #cobertores-mais {
+    width: 300px;
+  }
+  
+  body {
+    background-size: 220px auto;
+
+  }
+
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+
+  .background-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    z-index: -1;
+  }
+  
+  .bg-icon {
+    position: absolute;
+    width: 250px; 
+    height: 200px;
+    background-image: url('imagem1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+  }  
+
+  .bg-icon {
+    width: 150px;
+    height: 120px;
+  }
+  
+  .bg-icon:nth-child(1) {
+    top: 5%;
+    left: 1%;
+  }
+  
+  .bg-icon:nth-child(2) {
+    top: 40%;
+    left: 20%;
+  }
+  
+  .bg-icon:nth-child(3) {
+    top: 15%;
+    left: 65%;
+  }
+  
+  .bg-icon:nth-child(4) {
+    top: 60%;
+    right: 1%;
+  }
+  
+  .bg-icon:nth-child(5) {
+    top: 75%;
+    left: 5%;
+  }
+  
+  .bg-icon:nth-child(6) {
+    top: 90%;
+    left: 60%;
+  }
+  
+  #titulo-inicial {
+    font-size: 22px;
+   display: flex;
+   justify-content: center;
+   margin: 50px auto;
+
+  }
+  
+  
+  .container-marrom{
+    display: grid;
+  grid-template-columns: 300px 300px;
+  margin: 50px 10px 30px 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5px;
+  }
+  
+  #roupas-calcados, 
+  #alimentos-ração,
+  #produtos-limpeza,
+  #moveis-eletrodomésticos,
+  #livros-brinquedos,
+  #cobertores-mais {
+    max-width: 280px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+  
+  .background-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    z-index: -1;
+  }
+  
+  .bg-icon {
+    position: absolute;
+    width: 250px; 
+    height: 200px;
+    background-image: url('imagem1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+  }  
+
+  .bg-icon {
+    width: 100px;
+    height: 80px;
+  }
+  
+  .bg-icon:nth-child(even) {
+    left: auto;
+    right: 2%;
+  }
+  
+  .bg-icon:nth-child(odd) {
+    left: 5%;
+    right: auto;
+  }
+  
+  .bg-icon:nth-child(1) {
+    top: 5%;
+  }
+  
+  .bg-icon:nth-child(2) {
+    top: 20%;
+  }
+  
+  .bg-icon:nth-child(3) {
+    top: 40%;
+  }
+  
+  .bg-icon:nth-child(4) {
+    top: 60%;
+  }
+  
+  .bg-icon:nth-child(5) {
+    top: 80%;
+  }
+  
+  .bg-icon:nth-child(6) {
+    top: 95%;
+  }
+
+  
+  #titulo-inicial {
+    font-size: 18px;
+    margin: 20px auto 10px;
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+
+  }
+    
+  .container-marrom{
+    display: grid;
+    grid-template-columns: 300px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .img1, .img2, .img3, .img4, .img5, .img6 {
+    height: 110px;
+    max-width: 150px;
+    border-width: 8px;
+  }
+  
+  .imagem {
+    margin: 10px auto;
+  }
+  
+  .design-botao {
+    width: 140px;
+    height: 35px;
+    font-size: 13px;
+  }
+  
+  .texto-doacao {
+    font-size: 12px;
+    line-height: 18px;
+    max-width: 180px;
+  }
+  
+  .texto-doacao2 {
+    font-size: 11px;
+    line-height: 18px;
+    width: 180px;
+  }
+  
+  #roupas-calcados, 
+  #alimentos-ração,
+  #produtos-limpeza,
+  #moveis-eletrodomésticos,
+  #livros-brinquedos,
+  #cobertores-mais {
+    padding: 12px 8px;
+    max-width: 240px;
+    height: 550px;
+
+  }
+  
+  .texto-doacao2 li {
+    margin-bottom: 5px;
+  }
+}
