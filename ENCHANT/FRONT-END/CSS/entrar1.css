@@ -728,7 +728,7 @@ footer-left img {
 
   footer {
     padding: 20px 30px;
-    height:40vh;
+    height:50vh;
   }
 
 
@@ -787,12 +787,12 @@ footer-left img {
 
 
 
-@media (min-width: 799px) {
+@media (min-width: 799px) and (max-width: 1000px) {
 
 
   footer {
     padding: 20px 50px;
-          height:60vh;
+          height:65vh;
     font-family: "Lexend Deca", sans-serif;
   }
 
