@@ -7,31 +7,51 @@
   padding: 0;
 }
 
-body{
-    overflow-x: hidden;
+.enviar-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 80px auto;
+  gap: 10px;
 }
 
 .pesquisa{
-    border: 3px solid #afaba3;
-    width: 500px;
-    height: 50px;
-    font-size: 20px;
+    display: flex;
+    border: 2px solid #000000;
+    width: 350px;
+    height: 40px;
+    font-size: 16px;
     font-family: 'Lexend Deca';
-    border-radius: 30px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80px;
-    margin-left: 450px;
-    margin-right: 450px;
-    padding-left: 30px;
+    border-radius: 15px;
+    padding-left: 20px;
    
 }
 
 input::placeholder{
-    color: #afaba3;
+    color: #000000;
+
+
 }
 input:active{
     color: rgba(0, 0, 0, 0.027);
+}
+
+#botao{
+  width: 100px;
+  height: 45px;
+  border-radius: 15px;
+  background-color: rgba(226, 204, 174, 1);
+  color: #4E3629;
+  font-family: "Lexend Deca";
+  border: none;
+  font-size: 16px;
+}
+
+#botao:hover{
+  background-color: #caae8d;
+  color: #3d2106;
+  border:1px solid #d8b48bce;
 }
 
 .titulo{

@@ -82,8 +82,9 @@ body {
 }
 
 #doeagora:hover {
-  background-color: #8a592c;
-  color: #FFFFFF;
+  background-color: #caae8d;
+  color: #3d2106;
+  border:1px solid #d8b48bce;
 }
 
 #icone {

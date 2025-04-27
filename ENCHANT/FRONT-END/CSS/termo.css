@@ -10,18 +10,12 @@
 
 
 body{
-
-
     font-family: 'Lexend Deca';
     font-size: 16px;
 
-
 }
 
-
 .containernomes{
-
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,28 +27,19 @@ body{
     z-index: 1000;
 }
 
-
-
-
 .imagemm{
-
 
     margin-top: -9rem;
     margin-right: 50rem;
-
 
 }
 
 
 .imageem{
    
-   
     height:100px;
     width:100px;
 }
- 
- 
-
 
 .containerc{
 

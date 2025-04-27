@@ -102,8 +102,9 @@ body {
   }
  
   #doeagora:hover {
-    background-color: #8a592c;
-    color: #FFFFFF;  
+    background-color: #caae8d;
+    color: #3d2106;
+    border:1px solid #d8b48bce;
   }
 
 
@@ -243,6 +244,11 @@ a {
      font-size: 14px;
      font-family: "Lexend Deca";
 
+  }
+  #botao:hover{
+    background-color: #caae8d;
+    color: #3d2106;
+    border:1px solid #d8b48bce;
   }
 
 .botoes {

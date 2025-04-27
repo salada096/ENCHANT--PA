@@ -16,6 +16,11 @@ body {
   border: none;
   color: #000000;
 }
+#botao-validar:hover{
+  background-color: #caae8d;
+  color: #3d2106;
+  border:1px solid #d8b48bce;
+}
 
 .container {
   max-width: 1200px;

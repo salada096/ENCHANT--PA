@@ -82,8 +82,9 @@ body {
 }
 
 #doeagora:hover {
-  background-color: #8a592c;
-  color: #FFFFFF;
+  background-color: #caae8d;
+  color: #3d2106;
+  border:1px solid #d8b48bce;
 }
 body {
   background-color: #FFFFFF;
@@ -124,7 +125,6 @@ p {
   font-family: "Lexend Deca", sans-serif;
   font-weight: 400;
   color: #000000;
-  opacity: 0.6;
   text-align: justify;
   margin-bottom: 60px;
 }
@@ -144,7 +144,7 @@ ul {
   font-family: "Lexend Deca", sans-serif;
   font-weight: 400;
   color: #000000;
-  opacity: 0.6;
+
 }
 
 .politíca {
@@ -165,8 +165,9 @@ ul {
 }
 
 .botao1:hover {
-  background-color: #E2CCAE;
-  opacity: 0.8;
+  background-color: #caae8d;
+  color: #3d2106;
+  border:1px solid #d8b48bce;
 }
 
 .container {
@@ -205,10 +206,11 @@ ul {
 }
 
 .botao:hover {
-  background-color: #E2CCAE;
+  background-color: #caae8d;
+  color: #3d2106;
   opacity: 0.8;
   text-decoration: none;
-  color: #000000;
+ 
 }
 
 .como {

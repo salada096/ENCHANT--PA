@@ -78,15 +78,11 @@
 }
 
 #doeagora:hover {
-  background-color: #8a592c;
-  color: #FFFFFF;
+  background-color: #caae8d;
+    color: #3d2106;
+    border:1px solid #d8b48bce;
 }
   
-
-
-
-
- 
   /* RESPONSIVIDADE PARA HEADER */
   @media (min-width: 1000px) {
     .navbar-nav {
@@ -367,8 +363,7 @@
  
  
  .esqueceu:hover{
- 
- 
+
      color: #a36d40;
      text-decoration: underline;
  
@@ -389,9 +384,6 @@
    font-size:32px;
    color:rgb(90, 48, 8);
    FONT-weight:500;
- 
- 
- 
  
  }
  .h2{
@@ -489,8 +481,9 @@
  
      }
      button[type="submit"]:hover {
-        background-color: #8a592c;
-     color: #FFFFFF;
+      background-color: #caae8d;
+      color: #3d2106;
+      border:1px solid #d8b48bce;
         
          }
  

@@ -82,8 +82,7 @@ body {
 }
 
 #doeagora:hover {
-  background-color: #8a592c;
-  color: #FFFFFF;
+  background-color: #caae8d;
 }
 body {
   background-color: #FFFFFF;
@@ -124,7 +123,7 @@ main {
 p {
   font-family: "Lexend Deca", sans-serif;
   font-weight: 400;
-  color: #3E3E3E;
+  color: #000000;
   margin-bottom: 50px;
 }
 

@@ -82,8 +82,9 @@ body {
 }
 
 #doeagora:hover {
-  background-color: #8a592c;
-  color: #FFFFFF;
+  background-color: #caae8d;
+    color: #3d2106;
+    border:1px solid #d8b48bce;
 }
 #imagem {
   display: flex;
@@ -130,8 +131,9 @@ body {
 }
 
 .botao-inicial:hover {
-  background-color: #61350C;
-  color: #FFFFFF;
+  background-color: #caae8d;
+    color: #3d2106;
+    border:1px solid #d8b48bce;
 }
 
 .back-container {
@@ -170,6 +172,7 @@ body {
 .noticia2-container {
   display: flex;
   flex-direction: row;
+  
 }
 #noticia1 {
   width: 300px;
@@ -586,8 +589,9 @@ footer-left img {
   }
 
   .botao-inicial:hover {
-    background-color: #61350C;
-    color: rgb(226, 204, 174);
+    background-color: #caae8d;
+    color: #3d2106;
+    border:1px solid #d8b48bce;
   }
 
   .back-container {
@@ -731,8 +735,9 @@ footer-left img {
   }
 
   .botao-inicial:hover {
-    background-color: #61350C;
-    color: rgb(226, 204, 174);
+    background-color: #caae8d;
+    color: #3d2106;
+    border:1px solid #d8b48bce;
   }
 
   .back-container {

@@ -18,6 +18,8 @@ body {
   z-index: 1000;
   top: 0;
   left: 0;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .navbar-nav {
@@ -80,8 +82,9 @@ body {
 }
 
 #doeagora:hover {
-  background-color: #8a592c;
-  color: #FFFFFF;
+  background-color: #caae8d;
+  color: #3d2106;
+  border:1px solid #d8b48bce;
 }
   
 .container {
@@ -220,7 +223,12 @@ a {
      font-family: "Lexend Deca";
 
   }
-
+  #botao:hover{
+    background-color: #caae8d;
+    color: #3d2106;
+    border:1px solid #d8b48bce;
+  }
+  
 .botoes {
   display: flex;
   justify-content: flex-end;

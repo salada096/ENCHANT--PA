@@ -87,7 +87,6 @@ body {
 
 }
 
-
 #roupas-calcados, 
 #alimentos-ração,
 #produtos-limpeza,
@@ -106,7 +105,7 @@ body {
   box-shadow: 
     -8px 8px 30px rgba(155, 125, 85, 0.096),
     8px -8px 30px rgba(155, 125, 85, 0.096);
-  border: #a1756148 solid 1px;
+  border: #8f3c1688 solid 1px;
   margin-top: auto;
  
 }
@@ -121,7 +120,7 @@ body {
   max-width: 200px;
   height: 150px;
   object-fit: cover;
-  border: #794d2438 solid 10px;
+  border: #965f328a solid 10px;
 }
 
 .imagem {
@@ -152,8 +151,8 @@ body {
 }
 
 .design-botao:hover {
-  background-color: #8a592c;
-  color: #ffffff;
+  background-color: #caae8d;
+  color: #3d2106;
   transition: transform 0.2s ease;
   transform: scale(1.1);
 }
