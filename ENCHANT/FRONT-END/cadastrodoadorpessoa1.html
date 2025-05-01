@@ -110,9 +110,8 @@
   <br>
 
 
-    <div class="container">
+<div class="container">
 
-        
         <h1 class="titulo">Cadastro Do Doador - Pessoa</h1>
         
         <div class="passos-container">
@@ -120,73 +119,117 @@
            <a><div class="passo">2° passo</div></a> 
         </div>
         
-        <div class="formulario">
-            <p class="aviso">Recomendamos atenção total ao preencher os dados nos campos solicitados. É fundamental que as informações sejam inseridas de forma responsável, a fim de evitar fraudes.</p>
+   <div class="formulario">
+
+     <p class="aviso">Recomendamos atenção total ao preencher os dados nos campos solicitados, sendo estes sem pontos ou traços. É fundamental que as informações sejam inseridas de forma responsável, a fim de evitar fraudes.</p>
           
-          
-          <form action="verificar-js">  
+            <div class="parte1">        
+    
+                        <form action="verificar-js">  
+
+                          <div class="campo">
+                              <label for="nome-ong">Nome do doador: <span class="obrigatorio">*</span></label>
+                              <input type="text" id="nome-ong" name="nome-ong" placeholder="ex: Nome do doador" required>
+                          </div>
+                          
+                          <div class="campo">
+                              <label for="email">E-mail: <span class="obrigatorio">*</span></label>
+                              <input type="email" id="email" name="email" placeholder="ex: nome@gmail.com" required>
+                          </div>
+                          
+                          <div class="senha-container">
+                              <div class="campo senha-grupo">
+                                  <label for="senha">Senha: <span class="obrigatorio">*</span></label>
+                                  <input type="password" id="senha" name="senha" placeholder="ex: xxxxxxxx" required>
+                                  <span class="mostrar-senha"></span>
+                                </div>    
+                                  
+                                <div class="campo senha-grupo">
+                                      <label for="confirma-senha">Confirme a senha: <span class="obrigatorio">*</span></label>
+                                      <input type="password" id="confirma-senha" name="confirma-senha" placeholder="ex: xxxxxxxx" required>
+                                      <span class="mostrar-senha"></span>
+                                  </div>
+                          </div>
+                          
+                          <div class="requisitos-senha">
+                              <p class="sub-sub-titulo">Sua senha deve conter:</p>
+                              <p class="requisitos-secundarios">Mínimo 8 dígitos</p>
+                              <p class="requisitos-secundarios">Pelo menos 2 números</p>
+                              <p class="requisitos-secundarios">Pelo menos 1 caracter especial</p>
+                              <p class="requisitos-secundarios">Pelo menos 1 letra MAIÚSCULA</p>
+                          </div>
+
+                          <div class="botoes">
+                             <button id="botao">Continuar</button>
+                              </div>
+                          </div>
+                         
+                    </form>
+              
+
+                <div class="modal fade" id="erroSenhaModal" tabindex="-1" aria-labelledby="erroSenhaModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="erroSenhaModalLabel">Atenção</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                                </div>
+                                <div class="modal-body" id="erroSenhaModalBody">
+                                    <!-- Mensagem de erro será inserida aqui -->
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="botao-validar" type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendi</button>
+                                </div>
+                  </div>
+          </div>
+    </div> 
 
 
-            <div class="campo">
-                <label for="nome-ong">Nome do doador: <span class="obrigatorio">*</span></label>
-                <input type="text" id="nome-ong" name="nome-ong" placeholder="ex: Nome do doador" required>
-            </div>
-            
-            <div class="campo">
-                <label for="email">E-mail: <span class="obrigatorio">*</span></label>
-                <input type="email" id="email" name="email" placeholder="ex: nome@gmail.com" required>
-            </div>
-            
-            <div class="senha-container">
-                <div class="campo senha-grupo">
-                    <label for="senha">Senha: <span class="obrigatorio">*</span></label>
-                    <input type="password" id="senha" name="senha" placeholder="ex: xxxxxxxx" required>
-                    <span class="mostrar-senha">
-                        
-                    </span>
-                </div>
-                
-                <div class="campo senha-grupo">
-                    <label for="confirma-senha">Confirme a senha: <span class="obrigatorio">*</span></label>
-                    <input type="password" id="confirma-senha" name="confirma-senha" placeholder="ex: xxxxxxxx" required>
-                    <span class="mostrar-senha">
-                       
-                    </span>
-                </div>
-            </div>
-            
-            <div class="requisitos-senha">
-                <p class="sub-sub-titulo">Sua senha deve conter:</p>
-                <p class="requisitos-secundarios">Mínimo 8 dígitos</p>
-                <p class="requisitos-secundarios">Pelo menos 2 números</p>
-                <p class="requisitos-secundarios">Pelo menos 1 caracter especial</p>
-                <p class="requisitos-secundarios">Pelo menos 1 letra MAIÚSCULA</p>
-            </div>
-            <div class="botoes">
-               <a href="cadastrodoadorpessoa2.html" class="botao-final"><button id="botao">Continuar </button></a>
-                </div>
-            </div>
-            </div>
-      </form>
+
+        <div class="parte2">
+          <form action="verificar-js">
+
+            <div class="lado-container">
  
+                        <div class="campo">
+                          <label for="CPF">Cadastro de Pessoa Física (CPF):<span class="obrigatorio">*</span></label>
+                          <input type="name" id="cpf" name="cpf" placeholder="ex: xxx.xxx.xxx-xx" required>
+                      </div>
 
-
-     <div class="modal fade" id="erroSenhaModal" tabindex="-1" aria-labelledby="erroSenhaModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="erroSenhaModalLabel">Atenção</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                    </div>
-                    <div class="modal-body" id="erroSenhaModalBody">
-                        <!-- Mensagem de erro será inserida aqui -->
-                    </div>
-                    <div class="modal-footer">
-                        <button id="botao-validar" type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendi</button>
-                    </div>
-                </div>
+                      <div class="campo">
+                          <label for="RG">Registro Geral (RG):<span class="obrigatorio">*</span></label>
+                          <input type="name" id="rg" name="rg" placeholder="ex: xx.xxx.xxx-x" required>
+                      </div>
             </div>
-        </div>
+                      <div class="campo">
+                              <label for="senha">Telefone:<span class="obrigatorio">*</span></label>
+                              <input type="tel" id="telefone" name="telefone" placeholder="ex: (xx)xxxx-xxxx" required>
+                      </div>
+
+
+                    <div class="politica-container"> 
+                      <input type="checkbox" id="termos" name="termos" required>
+                      <label for="termos">Li e aceito os termos de uso e a <a href="privacidade1.html" id="botoes-link"><span id="politica">política de privacidade.</span></a></label>
+                    </div>
+
+                  
+                        <div class="botoes-2">
+
+                              <div class="botao-voltar">
+                                 <button id="botao1">Voltar</button>
+                              </div>
+                              <div class="botao-confirmar">
+                                  <a href="inicio2.html"><button id="botao2">Confirmar</button></a>
+                              </div>
+                        </div>
+                        </div>
+                     
+          </form>
+
+</div>
+</div>
+</div>
+
 
 
         <footer>
@@ -219,7 +262,7 @@
               </div>
               <div class="footer-column"  title="PROTEÇÃO DE DADOS - clique">
                 <h3>PROTEÇÃO DE DADOS</h3>
-                <a href="politica1.html">Política de privacidade</a>
+                <a href="privacidade1.html">Política de privacidade</a>
               </div>
               <div class="footer-column" title="ACOMPANHE NOSSAS REDES - clique">
                 <h3>ACOMPANHE NOSSAS REDES</h3>
