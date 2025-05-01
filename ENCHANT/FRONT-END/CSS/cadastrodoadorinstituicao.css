@@ -32,7 +32,6 @@ body {
     margin-left: 20px;
   }
   
-
   .menu-lateral {
     justify-content: flex-start;
     text-align: left;
@@ -137,7 +136,7 @@ body {
   margin: 0 auto;
 }
 
-a {
+#politica-link{
   text-decoration: none;
 }
 
@@ -274,10 +273,15 @@ a {
     height: 40px;
     border-radius: 10px;
     border: none;
-    color:#3E3E3E;
+    color:#000000;
      justify-content: center;
      font-size: 14px;
      font-family: "Lexend Deca";
+}
+#botao-inicial:hover {
+  background-color: #caae8d;
+  color: #3d2106;
+  border:1px solid #d8b48bce;
 }
 
 .botao-avancar {
@@ -294,6 +298,7 @@ a {
   background-color: transparent;
   border: none;
 }
+
 #botao-validar{
   background-color: #E2CCAE;
   border: none;
@@ -324,18 +329,15 @@ background-color: #fcf2e8;
   gap: 40px;
 }
 
-
 .footer-left {
   max-width: 400px;
   font-size: 12px;
   height: 180px;
 }
 
-
 .footer-left p {
   font-size: 10px;
 }
-
 
 footer-left img {
   width: 200px;
