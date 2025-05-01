@@ -300,6 +300,14 @@ a {
   color: #000000;
 
 }
+.politica-container{
+margin-left: 40px;
+font-size: 14px;
+
+}
+#politica{
+  color: #EC9E07;
+}
 
 footer {
 background-color: #fcf2e8;
