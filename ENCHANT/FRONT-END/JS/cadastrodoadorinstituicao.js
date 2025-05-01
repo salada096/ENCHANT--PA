@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailInput = document.getElementById('email');
     const botaoContinuar = document.getElementById('botao');
     const botoesExibirSenha = document.querySelectorAll('.mostrar-senha');
+    const cnpjInput = document.getElementById('cnpj');
+    const telefoneInput = document.getElementById('telefone');
+    const termosCheckbox = document.getElementById('termos');
     
     // Função para mostrar o modal com mensagem personalizada
     function mostrarModal(mensagem) {
@@ -20,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Fallback para alert caso o modal não esteja disponível no HTML
             alert(mensagem.replace(/<[^>]*>?/gm, ''));  // Remove tags HTML para exibir no alert
         }
-}})
+    }
 
     // Função para validar a senha
     function validarSenha(senha) {
@@ -45,6 +48,316 @@ document.addEventListener('DOMContentLoaded', function() {
         const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return regexEmail.test(email);
     }
+    
+    // Função para validar CNPJ
+    function validarCNPJ(cnpj) {
+        // Remove caracteres não numéricos
+        cnpj = cnpj.replace(/[^\d]/g, '');
+        
+        // CNPJ deve ter 14 dígitos
+        if (cnpj.length !== 14) return false;
+        
+        // Verifica se todos os dígitos são iguais
+        if (/^(\d)\1+$/.test(cnpj)) return false;
+        
+        // Validação dos dígitos verificadores
+        let tamanho = cnpj.length - 2;
+        let numeros = cnpj.substring(0, tamanho);
+        const digitos = cnpj.substring(tamanho);
+        let soma = 0;
+        let pos = tamanho - 7;
+        
+        // Cálculo do primeiro dígito verificador
+        for (let i = tamanho; i >= 1; i--) {
+            soma += numeros.charAt(tamanho - i) * pos--;
+            if (pos < 2) pos = 9;
+        }
+        
+        let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(0)) return false;
+        
+        // Cálculo do segundo dígito verificador
+        tamanho += 1;
+        numeros = cnpj.substring(0, tamanho);
+        soma = 0;
+        pos = tamanho - 7;
+        
+        for (let i = tamanho; i >= 1; i--) {
+            soma += numeros.charAt(tamanho - i) * pos--;
+            if (pos < 2) pos = 9;
+        }
+        
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(1)) return false;
+        
+        return true;
+    }
+    
+    // Função para validar telefone
+    function validarTelefone(telefone) {
+        // Remove caracteres não numéricos
+        telefone = telefone.replace(/[^\d]/g, '');
+        
+        // Telefone deve ter entre 10 e 11 dígitos (com ou sem 9 à frente)
+        if (telefone.length < 10 || telefone.length > 11) return false;
+        
+        // Se tiver 11 dígitos, o primeiro deve ser 9 (para celular)
+        if (telefone.length === 11 && telefone.charAt(2) !== '9') return false;
+        
+        return true;
+    }
+    
+    // Função para formatar CNPJ enquanto digita
+    function formatarCNPJ(input) {
+        let value = input.value.replace(/\D/g, '');
+        if (value.length > 14) value = value.slice(0, 14);
+        
+        value = value.replace(/^(\d{2})(\d)/, "$1.$2");
+        value = value.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
+        value = value.replace(/\.(\d{3})(\d)/, ".$1/$2");
+        value = value.replace(/(\d{4})(\d)/, "$1-$2");
+        
+        input.value = value;
+    }
+    
+    // Função para formatar telefone enquanto digita
+    function formatarTelefone(input) {
+        let value = input.value.replace(/\D/g, '');
+        if (value.length > 11) value = value.slice(0, 11);
+        
+        if (value.length > 6) {
+            if (value.length > 10) {
+                // Formato celular: (99)99999-9999
+                value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1)$2-$3");
+            } else {
+                // Formato fixo: (99)9999-9999
+                value = value.replace(/^(\d{2})(\d{4})(\d{0,4})$/, "($1)$2-$3");
+            }
+        } else if (value.length > 2) {
+            // Só o DDD: (99)
+            value = value.replace(/^(\d{2})(\d{0,5})$/, "($1)$2");
+        }
+        
+        input.value = value;
+    }
 
     // Adicionar evento de clique ao botão continuar
+    botaoContinuar.addEventListener('click', function(event) {
+        event.preventDefault(); // Impedir o comportamento padrão do botão
+        
+        // Verificar se a senha atende a todos os requisitos
+        const senha = senhaInput.value;
+        const validacao = validarSenha(senha);
+        
+        // Verificar se todos os campos estão preenchidos
+        const nomeOng = document.getElementById('nome-ong').value;
+        const email = emailInput.value;
+        const cnpj = cnpjInput.value;
+        const telefone = telefoneInput.value;
+        
+        if (!nomeOng || !email || !senha || !confirmaSenhaInput.value || !cnpj || !telefone) {
+            mostrarModal('<p>Por favor, preencha todos os campos obrigatórios!</p>');
+            return;
+        }
+        
+        // Verificar se os termos foram aceitos
+        if (!termosCheckbox.checked) {
+            mostrarModal('<p>Você precisa aceitar os termos de uso e a política de privacidade para continuar!</p>');
+            return;
+        }
+        
+        // Validar formato do email
+        if (!validarEmail(email)) {
+            mostrarModal('<p>Por favor, insira um endereço de e-mail válido!</p>');
+            emailInput.focus();
+            return;
+        }
+        
+        // Validar CNPJ
+        if (!validarCNPJ(cnpj)) {
+            mostrarModal('<p>Por favor, insira um CNPJ válido!</p>');
+            cnpjInput.focus();
+            return;
+        }
+        
+        // Validar telefone
+        if (!validarTelefone(telefone)) {
+            mostrarModal('<p>Por favor, insira um número de telefone válido!</p>');
+            telefoneInput.focus();
+            return;
+        }
+        
+        // Verificar cada requisito da senha
+        const erros = [];
+        
+        if (!validacao.temOitoDigitos) {
+            erros.push('Mínimo 8 dígitos');
+        }
+        
+        if (!validacao.temDoisNumeros) {
+            erros.push('Pelo menos 2 números');
+        }
+        
+        if (!validacao.temCaractereEspecial) {
+            erros.push('Pelo menos 1 caractere especial');
+        }
+        
+        if (!validacao.temLetraMaiuscula) {
+            erros.push('Pelo menos 1 letra MAIÚSCULA');
+        }
+        
+        // Se houver erros na validação da senha
+        if (erros.length > 0) {
+            let mensagemErro = '<p>A senha não atende aos seguintes requisitos:</p><ul>';
+            erros.forEach(erro => {
+                mensagemErro += `<li>${erro}</li>`;
+            });
+            mensagemErro += '</ul>';
+            
+            mostrarModal(mensagemErro);
+            return;
+        }
+        
+        // Verificar se as senhas coincidem
+        if (!senhasCoincidentes()) {
+            mostrarModal('<p>As senhas não coincidem!</p>');
+            return;
+        }
+        
+        // Se passar por todas as validações, redirecionar para a próxima página
+        window.location.href = 'cadastroong2.html';
+    });
 
+    // Validação em tempo real para mostrar visualmente os requisitos
+    senhaInput.addEventListener('input', function() {
+        const validacao = validarSenha(this.value);
+        const requisitos = document.querySelectorAll('.requisitos-secundarios');
+        
+        // Atualizar estilo visual dos requisitos
+        if (requisitos.length >= 4) {
+            requisitos[0].style.color = validacao.temOitoDigitos ? 'green' : '';
+            requisitos[1].style.color = validacao.temDoisNumeros ? 'green' : '';
+            requisitos[2].style.color = validacao.temCaractereEspecial ? 'green' : '';
+            requisitos[3].style.color = validacao.temLetraMaiuscula ? 'green' : '';
+        }
+    });
+    
+    // Validação em tempo real para verificar se as senhas coincidem
+    confirmaSenhaInput.addEventListener('input', function() {
+        if (senhaInput.value && this.value) {
+            if (senhasCoincidentes()) {
+                this.style.borderColor = 'green';
+            } else {
+                this.style.borderColor = 'red';
+            }
+        } else {
+            this.style.borderColor = '';
+        }
+    });
+    
+    // Validação em tempo real do email
+    emailInput.addEventListener('input', function() {
+        if (this.value) {
+            if (validarEmail(this.value)) {
+                this.style.borderColor = 'green';
+            } else {
+                this.style.borderColor = 'red';
+            }
+        } else {
+            this.style.borderColor = '';
+        }
+    });
+    
+    // Validação e formatação em tempo real do CNPJ
+    cnpjInput.addEventListener('input', function() {
+        formatarCNPJ(this);
+        
+        if (this.value) {
+            const cnpjLimpo = this.value.replace(/[^\d]/g, '');
+            if (cnpjLimpo.length === 14 && validarCNPJ(cnpjLimpo)) {
+                this.style.borderColor = 'green';
+            } else {
+                this.style.borderColor = cnpjLimpo.length === 14 ? 'red' : '';
+            }
+        } else {
+            this.style.borderColor = '';
+        }
+    });
+    
+    // Validação e formatação em tempo real do telefone
+    telefoneInput.addEventListener('input', function() {
+        formatarTelefone(this);
+        
+        if (this.value) {
+            const telefoneLimpo = this.value.replace(/[^\d]/g, '');
+            if ((telefoneLimpo.length === 10 || telefoneLimpo.length === 11) && validarTelefone(telefoneLimpo)) {
+                this.style.borderColor = 'green';
+            } else {
+                this.style.borderColor = (telefoneLimpo.length >= 10) ? 'red' : '';
+            }
+        } else {
+            this.style.borderColor = '';
+        }
+    });
+    
+    // Funcionalidade para mostrar o ícone de olho apenas durante a digitação
+    const camposSenha = [senhaInput, confirmaSenhaInput];
+    
+    camposSenha.forEach((campo, index) => {
+        // Configurar temporizador para ocultar o ícone
+        let temporizador;
+        
+        // Mostrar o ícone quando o usuário começa a digitar
+        campo.addEventListener('input', function() {
+            const botaoExibir = botoesExibirSenha[index];
+            
+            // Mostrar o ícone enquanto o usuário estiver digitando
+            if (campo.value) {
+                botaoExibir.style.display = 'inline-block';
+                botaoExibir.innerHTML = '<i class="mostrar-senha"></i>';
+                
+                // Limpar o temporizador anterior
+                clearTimeout(temporizador);
+                
+                // Configurar temporizador para ocultar o ícone após 3 segundos
+                temporizador = setTimeout(() => {
+                    botaoExibir.style.display = 'none';
+                }, 3000);
+            } else {
+                botaoExibir.style.display = 'none';
+            }
+        });
+        
+        // Inicialmente ocultar os ícones
+        botoesExibirSenha[index].style.display = 'none';
+        
+        // Garantir que o campo volte para tipo password quando o ícone desaparecer
+        botoesExibirSenha[index].addEventListener('transitionend', function() {
+            if (this.style.display === 'none' && campo.type === 'text') {
+                campo.type = 'password';
+            }
+        });
+    });
+    
+    // Manter a funcionalidade de alternância do tipo de campo para os ícones
+    botoesExibirSenha.forEach(function(botao, index) {
+        let temporizador;
+        
+        botao.addEventListener('click', function() {
+            const input = this.previousElementSibling;
+            if (input.type === 'password') {
+                input.type = 'text';
+                this.innerHTML = '<i class="mostrar-senha"></i>';
+            } else {
+                input.type = 'password';
+                this.innerHTML = '<i class="mostrar-senha"></i>';
+            }
+            
+            // Reiniciar o temporizador ao clicar no ícone
+            clearTimeout(temporizador);
+            temporizador = setTimeout(() => {
+                this.style.display = 'none';
+            }, 3000);
+        });
+    });
+});
