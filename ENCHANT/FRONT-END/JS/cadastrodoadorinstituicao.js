@@ -5,10 +5,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const confirmaSenhaInput = document.getElementById('confirma-senha');
     const emailInput = document.getElementById('email');
     const botaoContinuar = document.getElementById('botao');
+    const botaoVoltar = document.getElementById('botao1');
+    const botaoConfirmar = document.getElementById('botao2');
     const botoesExibirSenha = document.querySelectorAll('.mostrar-senha');
     const cnpjInput = document.getElementById('cnpj');
     const telefoneInput = document.getElementById('telefone');
     const termosCheckbox = document.getElementById('termos');
+    
+    // Elementos para navegação entre etapas
+    const parte1 = document.querySelector('.parte1');
+    const parte2 = document.querySelector('.parte2');
+    const passos = document.querySelectorAll('.passo');
+    
+    // Iniciar mostrando apenas a primeira parte
+    if (parte1 && parte2) {
+        parte1.style.display = 'block';
+        parte2.style.display = 'none';
+    }
     
     // Função para mostrar o modal com mensagem personalizada
     function mostrarModal(mensagem) {
@@ -22,6 +35,23 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // Fallback para alert caso o modal não esteja disponível no HTML
             alert(mensagem.replace(/<[^>]*>?/gm, ''));  // Remove tags HTML para exibir no alert
+        }
+    }
+
+    // Função para alternar entre as etapas
+    function irParaEtapa(etapa) {
+        if (etapa === 1) {
+            parte1.style.display = 'block';
+            parte2.style.display = 'none';
+            // Atualiza indicador de passos
+            passos[0].classList.add('ativo');
+            passos[1].classList.remove('ativo');
+        } else if (etapa === 2) {
+            parte1.style.display = 'none';
+            parte2.style.display = 'block';
+            // Atualiza indicador de passos
+            passos[0].classList.remove('ativo');
+            passos[1].classList.add('ativo');
         }
     }
 
@@ -142,166 +172,189 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Adicionar evento de clique ao botão continuar
-    botaoContinuar.addEventListener('click', function(event) {
-        event.preventDefault(); // Impedir o comportamento padrão do botão
-        
-        // Verificar se a senha atende a todos os requisitos
-        const senha = senhaInput.value;
-        const validacao = validarSenha(senha);
-        
-        // Verificar se todos os campos estão preenchidos
-        const nomeOng = document.getElementById('nome-ong').value;
-        const email = emailInput.value;
-        const cnpj = cnpjInput.value;
-        const telefone = telefoneInput.value;
-        
-        if (!nomeOng || !email || !senha || !confirmaSenhaInput.value || !cnpj || !telefone) {
-            mostrarModal('<p>Por favor, preencha todos os campos obrigatórios!</p>');
-            return;
-        }
-        
-        // Verificar se os termos foram aceitos
-        if (!termosCheckbox.checked) {
-            mostrarModal('<p>Você precisa aceitar os termos de uso e a política de privacidade para continuar!</p>');
-            return;
-        }
-        
-        // Validar formato do email
-        if (!validarEmail(email)) {
-            mostrarModal('<p>Por favor, insira um endereço de e-mail válido!</p>');
-            emailInput.focus();
-            return;
-        }
-        
-        // Validar CNPJ
-        if (!validarCNPJ(cnpj)) {
-            mostrarModal('<p>Por favor, insira um CNPJ válido!</p>');
-            cnpjInput.focus();
-            return;
-        }
-        
-        // Validar telefone
-        if (!validarTelefone(telefone)) {
-            mostrarModal('<p>Por favor, insira um número de telefone válido!</p>');
-            telefoneInput.focus();
-            return;
-        }
-        
-        // Verificar cada requisito da senha
-        const erros = [];
-        
-        if (!validacao.temOitoDigitos) {
-            erros.push('Mínimo 8 dígitos');
-        }
-        
-        if (!validacao.temDoisNumeros) {
-            erros.push('Pelo menos 2 números');
-        }
-        
-        if (!validacao.temCaractereEspecial) {
-            erros.push('Pelo menos 1 caractere especial');
-        }
-        
-        if (!validacao.temLetraMaiuscula) {
-            erros.push('Pelo menos 1 letra MAIÚSCULA');
-        }
-        
-        // Se houver erros na validação da senha
-        if (erros.length > 0) {
-            let mensagemErro = '<p>A senha não atende aos seguintes requisitos:</p><ul>';
-            erros.forEach(erro => {
-                mensagemErro += `<li>${erro}</li>`;
-            });
-            mensagemErro += '</ul>';
+    if (botaoContinuar) {
+        botaoContinuar.addEventListener('click', function(event) {
+            event.preventDefault(); // Impedir o comportamento padrão do botão
             
-            mostrarModal(mensagemErro);
-            return;
-        }
-        
-        // Verificar se as senhas coincidem
-        if (!senhasCoincidentes()) {
-            mostrarModal('<p>As senhas não coincidem!</p>');
-            return;
-        }
-        
-        // Se passar por todas as validações, redirecionar para a próxima página
-        window.location.href = 'cadastroong2.html';
-    });
+            // Verificar se a senha atende a todos os requisitos
+            const senha = senhaInput.value;
+            const validacao = validarSenha(senha);
+            
+            // Verificar se todos os campos estão preenchidos
+            const nomeOng = document.getElementById('nome-ong').value;
+            const email = emailInput.value;
+            
+            if (!nomeOng || !email || !senha || !confirmaSenhaInput.value) {
+                mostrarModal('<p>Por favor, preencha todos os campos obrigatórios!</p>');
+                return;
+            }
+            
+            // Validar formato do email
+            if (!validarEmail(email)) {
+                mostrarModal('<p>Por favor, insira um endereço de e-mail válido!</p>');
+                emailInput.focus();
+                return;
+            }
+            
+            // Verificar cada requisito da senha
+            const erros = [];
+            
+            if (!validacao.temOitoDigitos) {
+                erros.push('Mínimo 8 dígitos');
+            }
+            
+            if (!validacao.temDoisNumeros) {
+                erros.push('Pelo menos 2 números');
+            }
+            
+            if (!validacao.temCaractereEspecial) {
+                erros.push('Pelo menos 1 caractere especial');
+            }
+            
+            if (!validacao.temLetraMaiuscula) {
+                erros.push('Pelo menos 1 letra MAIÚSCULA');
+            }
+            
+            // Se houver erros na validação da senha
+            if (erros.length > 0) {
+                let mensagemErro = '<p>A senha não atende aos seguintes requisitos:</p><ul>';
+                erros.forEach(erro => {
+                    mensagemErro += `<li>${erro}</li>`;
+                });
+                mensagemErro += '</ul>';
+                
+                mostrarModal(mensagemErro);
+                return;
+            }
+            
+            // Verificar se as senhas coincidem
+            if (!senhasCoincidentes()) {
+                mostrarModal('<p>As senhas não coincidem!</p>');
+                return;
+            }
+            
+            // Se passar por todas as validações, avançar para a próxima etapa
+            irParaEtapa(2);
+        });
+    }
+    
+    // Adicionar evento de clique ao botão voltar
+    if (botaoVoltar) {
+        botaoVoltar.addEventListener('click', function(event) {
+            event.preventDefault();
+            irParaEtapa(1);
+        });
+    }
+    
+    // Adicionar evento de clique ao botão confirmar
+    if (botaoConfirmar) {
+        botaoConfirmar.addEventListener('click', function(event) {
+            // Verificar se todos os campos necessários estão preenchidos
+            const cpf = document.getElementById('cpf').value;
+            const rg = document.getElementById('rg').value;
+            const telefone = document.getElementById('telefone').value;
+            
+            if (!cpf || !rg || !telefone) {
+                event.preventDefault();
+                mostrarModal('<p>Por favor, preencha todos os campos obrigatórios!</p>');
+                return;
+            }
+            
+            // Verificar se os termos foram aceitos
+            if (!termosCheckbox.checked) {
+                event.preventDefault();
+                mostrarModal('<p>Você precisa aceitar os termos de uso e a política de privacidade para continuar!</p>');
+                return;
+            }
+            
+            // Se tudo estiver ok, o formulário será enviado
+        });
+    }
 
     // Validação em tempo real para mostrar visualmente os requisitos
-    senhaInput.addEventListener('input', function() {
-        const validacao = validarSenha(this.value);
-        const requisitos = document.querySelectorAll('.requisitos-secundarios');
-        
-        // Atualizar estilo visual dos requisitos
-        if (requisitos.length >= 4) {
-            requisitos[0].style.color = validacao.temOitoDigitos ? 'green' : '';
-            requisitos[1].style.color = validacao.temDoisNumeros ? 'green' : '';
-            requisitos[2].style.color = validacao.temCaractereEspecial ? 'green' : '';
-            requisitos[3].style.color = validacao.temLetraMaiuscula ? 'green' : '';
-        }
-    });
+    if (senhaInput) {
+        senhaInput.addEventListener('input', function() {
+            const validacao = validarSenha(this.value);
+            const requisitos = document.querySelectorAll('.requisitos-secundarios');
+            
+            // Atualizar estilo visual dos requisitos
+            if (requisitos.length >= 4) {
+                requisitos[0].style.color = validacao.temOitoDigitos ? 'green' : '';
+                requisitos[1].style.color = validacao.temDoisNumeros ? 'green' : '';
+                requisitos[2].style.color = validacao.temCaractereEspecial ? 'green' : '';
+                requisitos[3].style.color = validacao.temLetraMaiuscula ? 'green' : '';
+            }
+        });
+    }
     
     // Validação em tempo real para verificar se as senhas coincidem
-    confirmaSenhaInput.addEventListener('input', function() {
-        if (senhaInput.value && this.value) {
-            if (senhasCoincidentes()) {
-                this.style.borderColor = 'green';
+    if (confirmaSenhaInput) {
+        confirmaSenhaInput.addEventListener('input', function() {
+            if (senhaInput.value && this.value) {
+                if (senhasCoincidentes()) {
+                    this.style.borderColor = 'green';
+                } else {
+                    this.style.borderColor = 'red';
+                }
             } else {
-                this.style.borderColor = 'red';
+                this.style.borderColor = '';
             }
-        } else {
-            this.style.borderColor = '';
-        }
-    });
+        });
+    }
     
     // Validação em tempo real do email
-    emailInput.addEventListener('input', function() {
-        if (this.value) {
-            if (validarEmail(this.value)) {
-                this.style.borderColor = 'green';
+    if (emailInput) {
+        emailInput.addEventListener('input', function() {
+            if (this.value) {
+                if (validarEmail(this.value)) {
+                    this.style.borderColor = 'green';
+                } else {
+                    this.style.borderColor = 'red';
+                }
             } else {
-                this.style.borderColor = 'red';
+                this.style.borderColor = '';
             }
-        } else {
-            this.style.borderColor = '';
-        }
-    });
+        });
+    }
     
     // Validação e formatação em tempo real do CNPJ
-    cnpjInput.addEventListener('input', function() {
-        formatarCNPJ(this);
-        
-        if (this.value) {
-            const cnpjLimpo = this.value.replace(/[^\d]/g, '');
-            if (cnpjLimpo.length === 14 && validarCNPJ(cnpjLimpo)) {
-                this.style.borderColor = 'green';
+    if (cnpjInput) {
+        cnpjInput.addEventListener('input', function() {
+            formatarCNPJ(this);
+            
+            if (this.value) {
+                const cnpjLimpo = this.value.replace(/[^\d]/g, '');
+                if (cnpjLimpo.length === 14 && validarCNPJ(cnpjLimpo)) {
+                    this.style.borderColor = 'green';
+                } else {
+                    this.style.borderColor = cnpjLimpo.length === 14 ? 'red' : '';
+                }
             } else {
-                this.style.borderColor = cnpjLimpo.length === 14 ? 'red' : '';
+                this.style.borderColor = '';
             }
-        } else {
-            this.style.borderColor = '';
-        }
-    });
+        });
+    }
     
     // Validação e formatação em tempo real do telefone
-    telefoneInput.addEventListener('input', function() {
-        formatarTelefone(this);
-        
-        if (this.value) {
-            const telefoneLimpo = this.value.replace(/[^\d]/g, '');
-            if ((telefoneLimpo.length === 10 || telefoneLimpo.length === 11) && validarTelefone(telefoneLimpo)) {
-                this.style.borderColor = 'green';
+    if (telefoneInput) {
+        telefoneInput.addEventListener('input', function() {
+            formatarTelefone(this);
+            
+            if (this.value) {
+                const telefoneLimpo = this.value.replace(/[^\d]/g, '');
+                if ((telefoneLimpo.length === 10 || telefoneLimpo.length === 11) && validarTelefone(telefoneLimpo)) {
+                    this.style.borderColor = 'green';
+                } else {
+                    this.style.borderColor = (telefoneLimpo.length >= 10) ? 'red' : '';
+                }
             } else {
-                this.style.borderColor = (telefoneLimpo.length >= 10) ? 'red' : '';
+                this.style.borderColor = '';
             }
-        } else {
-            this.style.borderColor = '';
-        }
-    });
+        });
+    }
     
     // Funcionalidade para mostrar o ícone de olho apenas durante a digitação
-    const camposSenha = [senhaInput, confirmaSenhaInput];
+    const camposSenha = [senhaInput, confirmaSenhaInput].filter(campo => campo !== null);
     
     camposSenha.forEach((campo, index) => {
         // Configurar temporizador para ocultar o ícone
@@ -329,18 +382,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Inicialmente ocultar os ícones
-        botoesExibirSenha[index].style.display = 'none';
+        if (botoesExibirSenha[index]) {
+            botoesExibirSenha[index].style.display = 'none';
+        }
         
         // Garantir que o campo volte para tipo password quando o ícone desaparecer
-        botoesExibirSenha[index].addEventListener('transitionend', function() {
-            if (this.style.display === 'none' && campo.type === 'text') {
-                campo.type = 'password';
-            }
-        });
+        if (botoesExibirSenha[index]) {
+            botoesExibirSenha[index].addEventListener('transitionend', function() {
+                if (this.style.display === 'none' && campo.type === 'text') {
+                    campo.type = 'password';
+                }
+            });
+        }
     });
     
     // Manter a funcionalidade de alternância do tipo de campo para os ícones
     botoesExibirSenha.forEach(function(botao, index) {
+        if (!botao) return;
+        
         let temporizador;
         
         botao.addEventListener('click', function() {
