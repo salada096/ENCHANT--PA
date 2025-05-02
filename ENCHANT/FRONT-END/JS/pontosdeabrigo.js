@@ -1,4 +1,4 @@
-    let count = 0;
+   let count = 0;
         const maxItems = 9;
         const addButton = document.getElementById('addButton');
         const cancelButton = document.getElementById('cancelButton');
@@ -359,4 +359,4 @@
             
             // Exibir mensagem de sucesso
             mostrarMensagem('Item excluído com sucesso!', 'sucesso');
-        
+        }
