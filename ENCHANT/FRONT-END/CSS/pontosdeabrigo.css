@@ -204,7 +204,7 @@
             font-size: 16px;
         }
         
-        /* Garantir quebra de linha para textos longos */
+       
         .local-value, .hours-value, .address-value {
             word-wrap: break-word;
             word-break: break-word;
@@ -233,8 +233,8 @@
         
         .edit-btn {
             background-color: transparent;
-            color: #8a592c;
-            border: 1px solid #8a592c; ;
+           color:#000000;
+           border: #000000 solid 1px; ;
            
             padding: 6px 12px;
             border-radius: 10px;
@@ -267,8 +267,8 @@
         
         .cancel-btn {
             background-color: transparent;
-            color: #8a592c;
-            border: 1px solid #8a592c; ;
+            color: #000000;
+            border: #000000 solid 1px;
             height: 3rem;
             width: 8rem;
             border-radius: 10px;
