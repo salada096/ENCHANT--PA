@@ -53,9 +53,11 @@ body{
 
 .hh{
 
-   
-    padding:2rem;
-    margin-left: 4rem;
+ padding:1rem;
+    display:flex;
+    text-align:center;
+   justify-content: center;
+    align-items: center;
 }
 
 
