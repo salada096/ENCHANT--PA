@@ -26,6 +26,12 @@ if (validadeInput) {
 const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
 const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
 
+// Atualizar mensagem de erro no modal
+const errorModalBody = document.getElementById('errorModalBody');
+if (errorModalBody) {
+    errorModalBody.innerHTML = '<p>Por favor, preencha todos os campos do formulário atual (Alimentos ou Ração para Animais) antes de enviar.</p>';
+}
+
 // Botões de fechar modais
 document.getElementById("closeConfirmModal").addEventListener("click", () => {
     confirmModal.hide();
@@ -68,37 +74,63 @@ function showPets() {
     petTab.classList.add("active");
 }
 
-// Function to check if any field in a form section is filled
+// Function to check if ALL fields in a form section are filled
 function isFormSectionFilled(formId) {
     const formSection = document.getElementById(formId);
     const inputs = formSection.querySelectorAll('input, select');
     
     for (let input of inputs) {
         if (input.tagName === 'SELECT') {
-            if (input.selectedIndex > 0) return true;
+            if (input.selectedIndex <= 0) return false;
         } else {
-            if (input.value.trim() !== '') return true;
+            if (input.value.trim() === '') return false;
         }
     }
     
-    return false;
+    return true;
 }
 
 // Function to handle form submission
 function handleSubmit() {
-    // Check if at least one section has been filled
-    const comidaFilled = isFormSectionFilled('comida');
-    const petsFilled = isFormSectionFilled('pet');
+    // Check which section is currently visible
+    const isComidaVisible = comidaSection.style.display === "block" || comidaSection.style.display === "";
+    const isPetVisible = petSection.style.display === "block";
     
-    if (comidaFilled || petsFilled) {
+    // Check if all fields in the visible section are filled
+    let formIsValid = false;
+    
+    if (isComidaVisible) {
+        formIsValid = isFormSectionFilled('comida');
+    } else if (isPetVisible) {
+        formIsValid = isFormSectionFilled('pet');
+    }
+    
+    if (formIsValid) {
         // Show success image and modal
         img1.style.display = "none";
         img2.style.display = "block";
         confirmModal.show();
+        
+        // Optional: Reset form after successful submission
+        resetFormFields(isComidaVisible ? 'comida' : 'pet');
     } else {
         // Show error modal
         errorModal.show();
     }
+}
+
+// Function to reset form fields after successful submission
+function resetFormFields(formId) {
+    const formSection = document.getElementById(formId);
+    const inputs = formSection.querySelectorAll('input, select');
+    
+    inputs.forEach(input => {
+        if (input.tagName === 'SELECT') {
+            input.selectedIndex = 0;
+        } else {
+            input.value = '';
+        }
+    });
 }
 
 // Change only the text of the Voltar button to "Enviar"
@@ -118,3 +150,11 @@ petTab.addEventListener("click", showPets);
 
 // Initialize the page
 showComida();
+  
+  
+  
+
+
+
+
+
