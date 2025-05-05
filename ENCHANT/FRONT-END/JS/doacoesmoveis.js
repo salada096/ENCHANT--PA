@@ -5,7 +5,8 @@ const img4 = document.getElementById("img4");
 const moveisSection = document.getElementById("moveis");
 const eletroSection = document.getElementById("eletro");
 const btnAvancar = document.getElementById("bottao");
-const btnVoltar = document.getElementById("bbotao"); // Vamos mudar o texto mas manter o estilo
+const btnVoltar = document.getElementById("bbotao");
+// Vamos mudar o texto mas manter o estilo
 const btnEnviar = document.getElementById("bbtn");
 const btnBackToRoupas = document.getElementById("back-to-roupas");
 const moveisTab = document.getElementById("moveis-tab");
@@ -57,35 +58,44 @@ function showEletro() {
     eletroTab.classList.add("active");
 }
 
-// Function to check if any field in a form section is filled
-function isFormSectionFilled(formId) {
+// Function to check if ALL fields in a form section are filled
+function isFormSectionComplete(formId) {
     const formSection = document.getElementById(formId);
     const inputs = formSection.querySelectorAll('input, select');
     
     for (let input of inputs) {
+        // Skip hidden inputs or inputs with type="hidden"
+        if (input.type === 'hidden' || getComputedStyle(input).display === 'none') {
+            continue;
+        }
+        
         if (input.tagName === 'SELECT') {
-            if (input.selectedIndex > 0) return true;
+            if (input.selectedIndex <= 0) return false;
         } else {
-            if (input.value.trim() !== '') return true;
+            if (input.value.trim() === '') return false;
         }
     }
     
-    return false;
+    return true; // All fields are filled
 }
 
 // Function to handle form submission
 function handleSubmit() {
-    // Check if at least one section has been filled
-    const moveisFilled = isFormSectionFilled('moveis');
-    const eletroFilled = isFormSectionFilled('eletro');
+    // Check if all fields in at least one section have been filled
+    const moveisComplete = isFormSectionComplete('moveis');
+    const eletroComplete = isFormSectionComplete('eletro');
     
-    if (moveisFilled || eletroFilled) {
+    if (moveisComplete || eletroComplete) {
         // Show success image and modal
         img1.style.display = "none";
         img2.style.display = "block";
         confirmModal.show();
     } else {
-        // Show error modal
+        // Show error modal with specific message
+        const errorMessageElement = document.getElementById('errorMessage');
+        if (errorMessageElement) {
+            errorMessageElement.textContent = "Por favor, preencha todos os campos de pelo menos uma seção (Móveis ou Eletrodomésticos).";
+        }
         errorModal.show();
     }
 }
