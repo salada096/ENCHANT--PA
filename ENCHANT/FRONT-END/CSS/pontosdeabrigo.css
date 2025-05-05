@@ -8,12 +8,12 @@
 
         body {
             font-family: Lexend Deca, sans-serif;
-            max-width: 900px;
+           
             margin: 0 auto;
             padding: 20px;
         }
         
-        .h1 {
+        .gg1 {
             text-align: center;
             color: #693B11;
             font-family: Passion One, sans-serif;
@@ -21,10 +21,21 @@
             margin-bottom: 20px;
         }
         
+        .parent-container {
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+          
+        }
+        
         .input-container {
             background-color: #DAB68B;
+           width: 100%;
+           max-width: 800px;
             padding: 20px;
             border-radius: 8px;
+          align-items: center;
+          justify-content: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin-bottom: 5px;
             display: flex;
@@ -32,7 +43,7 @@
         
         .input-image-container {
             width: 200px;
-            margin-top:22px;
+            margin-top:16px;
             height: 200px;
             background-color: #f0f0f0;
             border-radius: 4px;
@@ -49,6 +60,7 @@
             max-width: 100%;
             max-height: 100%;
             display: none;
+
         }
         
         .upload-icon {
@@ -88,38 +100,75 @@
             margin-bottom: 15px;
         }
         
-        label {
+       .label {
             display: block;
             margin-bottom: 3px;
             font-size: 16px;
             color: #ffffff;
         }
         
-        input, textarea {
+        .input, .textarea {
             width: 100%;
             padding: 6px;
             border: 1px solid #ddd;
             border-radius: 4px;
             
         }
-        input::placeholder, textarea::placeholder{
+        .input::placeholder, .textarea::placeholder{
             font-size: 12px;
         }
-        input:focus, textarea:focus {
+        .input:focus, .textarea:focus {
            
             outline: none;
         }
 
         
-        textarea {
+        .textarea {
             resize: vertical;
             min-height: 40px;
             max-height: 100px;
             height: 40px;
             
         }
-      
 
+        .s-button{
+            background-color: rgba(226, 204, 174, 1);
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            margin-left: 1rem;
+           
+            color: #050505;
+            width: 4rem;
+            height: 3rem;
+            
+            font-size: 16px;
+         
+            cursor: pointer;
+        }
+        .searchinho{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+     
+    margin-top: 20px;
+    margin-bottom: 20px;
+        }
+      
+        .search-inputinho {
+            width: 100%;
+            max-width: 400px;
+            align-self: center;
+            
+            padding: 0.55rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            font-family: 'Lexend Deca', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+           
+          }
        
         
         
@@ -128,6 +177,7 @@
             border: none;
             outline: none;
             border-radius: 10px;
+            margin-left: 38rem;
             margin-bottom: 48px;
             color: #4e3629;
             width: 10rem;
@@ -142,7 +192,7 @@
             background-color: #caae8d;
             color: #3d2106;
             transition: transform 0.2s ease;
-            transform: scale(1.1);
+            
         }
         .button:focus {
             outline: none;
@@ -150,22 +200,32 @@
         
         .gallery {
             margin-top: 30px;
+          
+        
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Para ajustar itens em telas menores */
+            margin: 0 auto; /* Centraliza o contêiner */
+            width: 100%
             
         }
         
         .gallery-item {
             height: auto;
             min-height: 200px;
-          
+            
             padding: 12px;
             margin-bottom: 80px;
             border-radius: 20px;
-          
+         
              border: 1px solid  #ddd;
             display: flex;
-           
-            width: 800px;
-            align-items: flex-start;
+            justify-content: center;
+           width: 100%;
+            max-width: 800px;   
+            align-items: center;
             position: relative;
         }
         
@@ -179,19 +239,19 @@
         
         .gallery-info {
             flex: 1;
-            background-color:  #DAB68B;
-            
+           
+            background-color: #DAB68B;
             border-radius: 8px;
             height:200px;
             padding: 7px;
-             max-width: 70%;
+            margin:0 auto;
             max-width: 800px;
         }
         
         .info-section {
             margin-bottom: 10px;
             margin-top: 6px;
-            color: #ffffff;
+            color: #000000;
             margin-left: 12px;
             font-size: 14px;
         }
@@ -244,25 +304,21 @@
         
         .delete-btn {
             background-color: #E2CCAE;
-            color: #8a592c;
+            color: #020201;
             border: none;
             padding: 6px 12px;
             border-radius: 10px;
             cursor: pointer;
         }
         
-        .edit-btn:hover {
-            border: 1px solid #caae8d;
-            color: #caae8d;
-            transition: transform 0.2s ease;
-            transform: scale(1.1);
-        }
+      
+    
         
         .delete-btn:hover {
             background-color: #caae8d;
-            color: #3d2106;
+            color: #000000;
             transition: transform 0.2s ease;
-            transform: scale(1.1);
+           
         }
         
         .cancel-btn {
@@ -277,12 +333,8 @@
             margin-right: 10px;
         }
         
-        .cancel-btn:hover {
-            border: 1px solid #caae8d;
-            color: #caae8d;
-            transition: transform 0.2s ease;
-            transform: scale(1.1);
-        }
+       
+        
         
         /* Estilos do modal - Atualizados para corresponder ao modal de doações */
         .modal-content {
@@ -352,13 +404,35 @@
             margin-top: 5px;
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 818px) {
             .input-container {
                 flex-direction: column;
+               
+                width: 400px;
+            }
+            .s-button{
+                font-size: 10px;
+                width: 4rem;
             }
             
+            .search-inputinho {
+                width: 100%;
+                max-width: 320px;
+                align-self: center;
+                
+                padding: 0.55rem 1rem;
+                border: 1px solid #ccc;
+                border-radius: 12px;
+                font-family: 'Lexend Deca', sans-serif;
+                font-size: 14px;
+                outline: none;
+                transition: border-color 0.3s ease;
+               
+              }
+           
             .input-image-container {
                 width: 100%;
+              
                 margin-right: 0;
                 margin-bottom: 20px;
             }
@@ -366,6 +440,19 @@
             .gallery-item {
                 flex-direction: column;
                 width: 100%;
+            }
+            .input, .textarea {
+                width: 16rem;
+                padding: 6px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                
+            }
+            .button{
+                margin-left:0;
+                width: 8rem;
+                height:3rem;
+                font-size: 14px;
             }
             
         .input-image-container {
