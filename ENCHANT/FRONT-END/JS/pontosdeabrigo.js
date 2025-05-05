@@ -36,6 +36,8 @@
             
             mensagemModal.show();
         }
+
+
         
         // Variável para armazenar o ID do item em edição
         let editingItemId = null;
@@ -360,3 +362,5 @@
             // Exibir mensagem de sucesso
             mostrarMensagem('Item excluído com sucesso!', 'sucesso');
         }
+
+        
