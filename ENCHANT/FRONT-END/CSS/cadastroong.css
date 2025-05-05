@@ -5,7 +5,6 @@
   margin: 0;
   padding: 0;
   font-family: "Lexend Deca", sans-serif;
-
 }
 
 body {
@@ -32,7 +31,6 @@ body {
     margin-left: 0;
   }
   
-
   .menu-lateral {
     justify-content: flex-start;
     text-align: left;
@@ -60,7 +58,6 @@ body {
     text-align: left;
   }
  
-  /* Modified nav-centralizada */
   .nav-centralizada {
     gap: 1px;
     display: flex;
@@ -107,7 +104,6 @@ body {
     border:1px solid #d8b48bce;
   }
 
-
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -119,6 +115,11 @@ body {
   margin: 20px;
   display: inline-block;
   cursor: pointer;
+}
+
+.primeiro{
+    display: block; 
+    width: 100%;
 }
 
 .titulo {
@@ -185,15 +186,16 @@ a {
 }
 
 .campo input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #CCC;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  padding-left: 20px;
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    padding-left: 20px;
+    box-sizing: border-box; 
 }
 
 .senha-container {
+ 
   display: flex;
   gap: 15px;
 }
@@ -201,8 +203,12 @@ a {
 .senha-grupo {
   flex: 1;
   position: relative;
-}
 
+  
+}
+#confirma-senha{
+    max-width: 100%;
+}
 .senha-grupo .mostrar-senha {
   position: absolute;
   right: 10px;
@@ -243,7 +249,6 @@ a {
      justify-content: flex-end;
      font-size: 14px;
      font-family: "Lexend Deca";
-
   }
   #botao:hover{
     background-color: #caae8d;
@@ -255,6 +260,7 @@ a {
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
+  width: 100%;
 }
 
 .botao-avancar {
@@ -275,7 +281,115 @@ a {
   background-color: #E2CCAE;
   border: none;
   color: #000000;
+}
 
+/*Segunda parte*/
+
+.segundo{
+ display: none;
+}
+
+.escolha{
+   margin: 5px 40px 20px 40px;
+}
+#sim{
+  margin-right: 50px;
+}
+
+.caixinha-escolha {
+    transform: scale(1.5);
+}
+
+.container-flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.final-container-1 {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.final-container-2 {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+    
+.botoes-2{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 40px 20px 40px;
+  position: relative; /* Added this */
+  bottom: auto; /* Reset any bottom positioning */
+  top: auto; /* Reset any top positioning */
+}
+
+.voltar{
+    display: flex;
+}
+
+.prosseguir{
+    display: flex;   
+}
+
+#botao2{
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    color: #000000;
+    background-color: #E2CCAE;
+    border: none;
+    font-size: 14px;
+  
+}
+
+#botao2:hover{
+    background-color: #caae8d;
+    color: #070707;
+    border:1px solid #d8b48bce;
+}
+
+#botao1{
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    color: #000000;
+    background-color: transparent;
+    border: #000000 solid 1px;
+    font-size: 14px;
+    
+}
+
+.politica-container{
+    margin-left: 40px;
+    font-size: 14px;
+    
+    }
+#politica{
+    color: #EC9E07;
+
+}
+#politica-link{
+    text-decoration: none;
+}
+.texto-certificado{
+    margin-left: 40px;
+}
+.upload-container {
+    border: 1px solid rgba(217, 217, 217, 1);
+    border-radius: 10px;
+    width: 400px;
+    height: 200px;
+    background-color: rgba(217, 217, 217, 1);
+    text-align: center;
+    justify-content: center;
+    margin-left: 40px;
+    margin-bottom: 20px;
 }
 
 footer {
@@ -415,6 +529,15 @@ footer-left img {
     margin-bottom: 5px;
   }
 
+  /* Responsividade para os novos contêineres */
+  .container-flex {
+    flex-direction: column;
+  }
+    
+  .final-container-1,
+  .final-container-2 {
+    width: 100%;
+  }
 }
 
 /* Responsividade */
@@ -452,6 +575,7 @@ footer-left img {
   .campo {
     margin-left: 5px;
     margin-right: 5px;
+    width: auto; /* Let the width adjust to container */
   }
   .requisitos-senha {
     margin-left: 5px;
@@ -459,8 +583,27 @@ footer-left img {
   input::placeholder{
     font-size: 14px;
   }
-
+  
+  /* Responsividade para os novos contêineres */
+  .container-flex {
+    flex-direction: column;
+  }
+    
+  .final-container-1,
+  .final-container-2 {
+    width: 100%;
+  }
+  
+  .botoes-2 {
+    margin: 20px 5px; /* Adjust margins for small screens */
+  }
+  
+  .upload-container {
+    width: 100%; /* Make upload container responsive */
+    max-width: 400px;
+  }
 }
+
 @media (min-width: 1000px) {
     .navbar-nav {
       margin-left: 0;
@@ -737,4 +880,3 @@ footer-left img {
     text-decoration: underline;
   }
 }
-
