@@ -642,7 +642,7 @@ footer {
   background-color: #fcf2e8;
   padding: 20px 50px;
    margin-top: 33px;
-            height: 36vh;
+           
              font-family: "Lexend Deca", sans-serif;
              z-index: 2;
      
@@ -728,6 +728,7 @@ footer-left img {
 
   footer {
     padding: 20px 30px;
+    height: 60vh;
 
   }
 
@@ -792,6 +793,7 @@ footer-left img {
 
   footer {
     padding: 20px 50px;
+  
         
     font-family: "Lexend Deca", sans-serif;
   }
@@ -865,6 +867,7 @@ footer-left img {
   footer {
     padding: 20px 50px;
     font-family: "Lexend Deca", sans-serif;
+    height: 36vh;
   }
 
 
@@ -935,6 +938,7 @@ footer-left img {
 
   footer {
     padding: 20px 50px;
+    height: 40vh;
     font-family: "Lexend Deca", sans-serif;
   }
 
