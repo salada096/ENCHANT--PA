@@ -6,10 +6,13 @@ const roupasSection = document.getElementById("roupas");
 const calcadosSection = document.getElementById("calcados");
 const btnAvancar = document.getElementById("bottao");
 const btnVoltar = document.getElementById("bbotao");
-const btnEnviar = document.getElementById("bbtn");
-const btnBackToRoupas = document.getElementById("back-to-roupas");
 const roupasTab = document.getElementById("roupas-tab");
 const calcadosTab = document.getElementById("calcados-tab");
+
+// O problema é que existem DOIS botões com o mesmo ID "bbtn" no seu HTML!
+// Vamos pegar os botões de enviar de forma mais específica
+const btnEnviarRoupas = document.querySelector("#roupas #bbtn");
+const btnEnviarCalcados = document.querySelector("#calcados #bbtn");
 
 // Inicializando os modais do Bootstrap
 const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
@@ -57,50 +60,64 @@ function showCalcados() {
     calcadosTab.classList.add("active");
 }
 
-// Function to check if any field in a form section is filled
-function isFormSectionFilled(formId) {
+// Function to check if ALL fields in a form section are filled
+function isFormSectionComplete(formId) {
     const formSection = document.getElementById(formId);
     const inputs = formSection.querySelectorAll('input, select');
     
     for (let input of inputs) {
+        // Skip hidden inputs or inputs with type="hidden"
+        if (input.type === 'hidden' || getComputedStyle(input).display === 'none') {
+            continue;
+        }
+        
         if (input.tagName === 'SELECT') {
-            if (input.selectedIndex > 0) return true;
+            if (input.selectedIndex <= 0) return false;
         } else {
-            if (input.value.trim() !== '') return true;
+            if (input.value.trim() === '') return false;
         }
     }
     
-    return false;
+    return true; // All fields are filled
 }
 
 // Function to handle form submission
 function handleSubmit() {
-    // Check if at least one section has been filled
-    const roupasFilled = isFormSectionFilled('roupas');
-    const calcadosFilled = isFormSectionFilled('calcados');
+    // Check if all fields in at least one section have been filled
+    const roupasComplete = isFormSectionComplete('roupas');
+    const calcadosComplete = isFormSectionComplete('calcados');
     
-    if (roupasFilled || calcadosFilled) {
+    if (roupasComplete || calcadosComplete) {
         // Show success image and modal
         img1.style.display = "none";
         img2.style.display = "block";
         confirmModal.show();
     } else {
-        // Show error modal
+        // Show error modal with specific message
+        const errorMessageElement = document.querySelector("#errorModalBody p");
+        if (errorMessageElement) {
+            errorMessageElement.textContent = "Por favor, preencha todos os campos de pelo menos uma seção (Roupas ou Calçados).";
+        }
         errorModal.show();
     }
 }
 
-// Event listeners
+// Event listeners para navegação
 btnAvancar.addEventListener("click", showCalcados);
-btnBackToRoupas.addEventListener("click", handleSubmit); // Alterado para acionar a submissão em vez de voltar
-btnVoltar.addEventListener("click", handleSubmit); // Alterado para acionar a submissão
+btnVoltar.addEventListener("click", showRoupas); // Botão de voltar agora realmente volta para roupas
+
+// Event listeners para envio do formulário - adicionamos aos botões específicos
+if (btnEnviarRoupas) {
+    btnEnviarRoupas.addEventListener("click", handleSubmit);
+}
+
+if (btnEnviarCalcados) {
+    btnEnviarCalcados.addEventListener("click", handleSubmit);
+}
 
 // Tab button event listeners
 roupasTab.addEventListener("click", showRoupas);
 calcadosTab.addEventListener("click", showCalcados);
-
-// Submit form event
-btnEnviar.addEventListener("click", handleSubmit);
 
 // Initialize the page
 showRoupas();
