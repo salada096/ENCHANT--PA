@@ -127,28 +127,36 @@ body {
     display:none;
 }
 
-.btn {
+
+
+.botaozinho {
+    background-color: rgba(226, 204, 174, 1);
+
     padding: 0.5rem 1.5rem;
     border-radius: 10px;
-   ;
+   border: none;
     font-weight: 400;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.btn-primary {
-    background-color: rgba(226, 204, 174, 1);
-    color: #4e3629;
-}
-
-.btn-outline {
+.botaosem {
     background-color: transparent;
-    color:#FFFFFF;
-    border: 1px solid rgba(226, 204, 174, 1)
+   border: 1px solid #000000;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+   color: #000000;
+    font-weight: 400;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-.btn-outline:hover{
-    border: 1px solid #8a592c;
+.botaozinho:hover{
+    background-color: #caae8d;
+    color: #3d2106;
+    transition: transform 0.2s ease;
+    
 }
 
 
@@ -235,18 +243,7 @@ body {
     border-bottom-right-radius: 5px;
 }
 
-.btn-primary {
-    background-color: rgba(226, 204, 174, 1);
-    color: #4e3629;
-    border: none;
-    border:1px solid rgba(226, 204, 174, 1);
-}
 
-.btn-primary:hover {
-    background-color: #caae8d;
-    color: #3d2106;
-    border:1px solid #d8b48bce;
-}
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
@@ -342,8 +339,12 @@ body {
         background-color: #fff;
     }
 
-    .btn {
-        padding: 0.5rem 1rem;
+    .botaozinho {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+    .botaosem{
+        padding: 0.4rem 1rem;
         font-size: 0.9rem;
     }
 
