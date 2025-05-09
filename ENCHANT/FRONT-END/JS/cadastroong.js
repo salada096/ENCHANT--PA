@@ -224,3 +224,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const senhaInput = document.getElementById('senha');
+    const confirmaSenhaInput = document.getElementById('confirma-senha');
+    const botaoContinuar = document.getElementById('botao');
+    
+    const requisitosSecundarios = document.querySelectorAll('.requisitos-secundarios');
+    const requisitoDigitos = requisitosSecundarios[0];     
+    const requisitoNumeros = requisitosSecundarios[1];     
+    const requisitoEspecial = requisitosSecundarios[2];    
+    const requisitoMaiuscula = requisitosSecundarios[3];   
+    
+    if (senhaInput) {
+        senhaInput.addEventListener('input', function() {
+            const senha = this.value;
+            const validacao = validarSenha(senha);
+            
+            atualizarCoresRequisitos(validacao);
+        });
+    }
+    
+    function validarSenha(senha) {
+        const temOitoDigitos = senha.length >= 8;
+        const temDoisNumeros = (senha.match(/\d/g) || []).length >= 2;
+        const temCaracterEspecial = /[!@#$%^&*(),.?":{}|<>]/.test(senha);
+        const temLetraMaiuscula = /[A-Z]/.test(senha);
+        
+        return {
+            valido: temOitoDigitos && temDoisNumeros && temCaracterEspecial && temLetraMaiuscula,
+            temOitoDigitos,
+            temDoisNumeros,
+            temCaracterEspecial,
+            temLetraMaiuscula
+        };
+    }
+    
+    function atualizarCoresRequisitos(validacao) {
+        const corValidado = "#28a745";  
+        const corPadrao = "#666";       
+        
+        requisitoDigitos.style.color = validacao.temOitoDigitos ? corValidado : corPadrao;
+        requisitoNumeros.style.color = validacao.temDoisNumeros ? corValidado : corPadrao;
+        requisitoEspecial.style.color = validacao.temCaracterEspecial ? corValidado : corPadrao;
+        requisitoMaiuscula.style.color = validacao.temLetraMaiuscula ? corValidado : corPadrao;
+    }
+    
+});     
