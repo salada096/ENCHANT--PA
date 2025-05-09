@@ -185,6 +185,10 @@ a {
   color: red;
 }
 
+p span {
+    color: red;
+}
+
 /* Aumentando o tamanho dos inputs */
 .campo input {
     padding: 12px;
