@@ -260,6 +260,10 @@ footer-left img{
 }
 
 @media (max-width: 768px) {
+
+  .icon-item span{
+    color: #000000;
+  }
   
 .btn-brown {
       width: auto;
