@@ -29,14 +29,20 @@ body {
 }
 
 .gerar-relatorio {
+  font-family: "Lexend Deca", sans-serif;
   background-color: #EDD9C7;
   color: black;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 30px;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   transition: 0.3s ease-in-out;
+}
+
+.gerar-relatorio:hover {
+  background-color: #caae8d;
+  color: #3d2106;
 }
 
 .container {
@@ -69,7 +75,7 @@ body {
   border: none;
   padding: 0;
   font-size: 16px;
-  color: inherit;
+  color: #EC9E07;
   text-align: left;
   cursor: pointer;
   font-family: "Lexend Deca", sans-serif;
