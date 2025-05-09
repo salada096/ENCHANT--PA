@@ -185,17 +185,37 @@ a {
   color: red;
 }
 
+/* Aumentando o tamanho dos inputs */
 .campo input {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #CCC;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding-left: 20px;
     box-sizing: border-box; 
+    width: 100%;
+    height: 45px;
+    transition: border-color 0.3s ease;
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: #693B11;
+    box-shadow: 0 0 5px rgba(105, 59, 17, 0.3);
+}
+
+/* Adicionando estados de validação */
+.campo input.valido {
+    border-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+.campo input.invalido {
+    border-color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.05);
 }
 
 .senha-container {
- 
   display: flex;
   gap: 15px;
 }
@@ -203,16 +223,16 @@ a {
 .senha-grupo {
   flex: 1;
   position: relative;
-
-  
 }
+
 #confirma-senha{
     max-width: 100%;
 }
+
 .senha-grupo .mostrar-senha {
   position: absolute;
-  right: 10px;
-  top: 50%;
+  right: 15px;
+  top: 38px;
   transform: translateY(-50%);
   cursor: pointer;
   color: #888;
@@ -225,36 +245,69 @@ a {
 }
 
 .requisitos-senha p {
-  margin: 2px 0;
+  margin: 4px 0;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
-.requisitos-senha .requisitos-secundarios::before {
+/* Estilos para requisitos da senha */
+.requisitos-senha .sub-sub-titulo {
+  font-size: 0.85rem;
+  color: #633204;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.requisitos-senha .requisito {
+  padding-left: 20px;
+  position: relative;
+}
+
+.requisitos-senha .requisito::before {
   content: "•";
-  color: red;
+  color: #dc3545;
+  position: absolute;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.requisitos-senha .requisito.valido::before {
+  content: "✓";
+  color: #28a745;
+}
+
+.requisitos-senha .requisito.valido {
+  color: #28a745;
 }
 
 .sub-sub-titulo {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: #633204;
-  margin: 0px 40px 40px;
+  margin: 0px 40px 8px;
 }
 
- #botao {
-    background-color: #E2CCAE;
-    width: 150px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    color:#3E3E3E;
-     justify-content: flex-end;
-     font-size: 14px;
-     font-family: "Lexend Deca";
-  }
-  #botao:hover{
-    background-color: #caae8d;
-    color: #3d2106;
-    border:1px solid #d8b48bce;
-  }
+#botao {
+  background-color: #E2CCAE;
+  width: 150px;
+  height: 45px;
+  border-radius: 10px;
+  border: none;
+  color:#3E3E3E;
+  justify-content: flex-end;
+  font-size: 14px;
+  font-family: "Lexend Deca";
+}
+
+#botao:hover{
+  background-color: #caae8d;
+  color: #3d2106;
+  border:1px solid #d8b48bce;
+}
 
 .botoes {
   display: flex;
@@ -273,10 +326,12 @@ a {
   justify-content: center;
   cursor: pointer;
 }
+
 .botao-none {
   background-color: transparent;
   border: none;
 }
+
 #botao-validar{
   background-color: #E2CCAE;
   border: none;
@@ -298,6 +353,13 @@ a {
 
 .caixinha-escolha {
     transform: scale(1.5);
+}
+
+.container-escolha {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .container-flex {
@@ -339,7 +401,7 @@ a {
 
 #botao2{
     width: 120px;
-    height: 40px;
+    height: 45px;
     border-radius: 10px;
     color: #000000;
     background-color: #E2CCAE;
@@ -356,7 +418,7 @@ a {
 
 #botao1{
     width: 120px;
-    height: 40px;
+    height: 45px;
     border-radius: 10px;
     color: #000000;
     background-color: transparent;
@@ -390,6 +452,29 @@ a {
     justify-content: center;
     margin-left: 40px;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.upload-container::before {
+    content: "Clique para enviar arquivo";
+    color: #666;
+    position: absolute;
+}
+
+.upload-container.has-file::before {
+    content: "";
+}
+
+#upload {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
 }
 
 footer {
