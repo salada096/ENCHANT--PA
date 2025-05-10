@@ -1,90 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
 
-
 body {
-  display: flex;
-  flex-direction: column;
   font-family: "Lexend Deca", sans-serif;
   min-height: 100vh;
   margin: 0;
   padding: 0;
 }
-
-
-/* Classe para quando a sidebar estiver expandida */
-.sidebar-expanded .container-fluid {
-  padding-left: 180px; /* Ajuste conforme a largura da sua sidebar expandida */
-}
-
-
-/* Garantir que apenas os itens do navbar se movam, não o perfil */
-.sidebar-expanded .navbar-nav {
-  margin-left: 170px; /* Ajuste conforme necessário */
-}
-
-
-/* Botão de upload e outros elementos à esquerda */
-#imgheader {
-  transition: margin-left 0.3s ease;
-}
-
-
-.sidebar-expanded #imgheader {
-  margin-left: 20px; /* Ajuste conforme necessário */
-}
-
-
-.header.animated {
-  animation: slideIn 0.5s ease-in-out;
-}
-
-
-.container-fluid {
-  position: relative;
-  transition: padding-left 0.3s ease;
-}
-
-
-.page-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding-top: 65px;
-  margin-left: 60px;
-  position: relative;
-}
-
-
-.navbar {
-  background-color: #ffffff;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  height: 56px;
-  box-shadow: #b4b4b4 1px 0 3px 0px;
-}
-
-
-.navbar-nav {
-  display: flex;
-  justify-content: start;
-  padding-left: 3rem;
-  align-items: center;
-  flex-grow: 1;
-  list-style: none;
-  margin-right: 3rem;
-  gap: 3rem;
-  font-size: 14px;
-}
-
-
-.container-fluid {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/*Aqui inicia o conteúdo da página*/
 
 
 .h1 {
