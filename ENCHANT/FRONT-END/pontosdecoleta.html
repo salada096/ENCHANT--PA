@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
   <head>
 
     <meta charset="UTF-8" />
@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"/>
     <link rel="stylesheet" href="https://phosphoricons.com?q=%22menu%22" />
-    <link rel="stylesheet" href="/CSS/pontosdecoleta.css" />
-    <script src="/JS/pontosdecoleta.js"></script>
+    <link rel="stylesheet" href="./CSS/pontosdecoleta.css" />
+    <link rel="stylesheet" href="./CSS/headercorreta.css">
+    <script src="./JS/pontosdecoleta.js"></script>
+    <script src="./JS/headercorreta.js"></script>
   </head>
   <body>
-    <!-- Atualização da seção do navbar -->
+
 <header>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <!-- Botão esquerdo para controlar a sidebar -->
+   
       <button
         id="icone2"
         class="navbar-toggler"
@@ -27,7 +29,6 @@
       </button>
 
 
-      <!-- Input File -->
       <button class="upload-btn" id="imgheader">
         <label for="imageUpload"
           ><i class="bi bi-plus" id="btnn"></i
@@ -39,7 +40,6 @@
         />
       </button>
 
-      <!-- Botão direito para outras funcionalidades -->
       <button
         id="icone"
         class="navbar-toggler"
@@ -84,7 +84,7 @@
               ></i>
               <span>Nome do Usuário</span>
             </button>
-            <!-- Dropdown menu movido para dentro do item de lista -->
+          
             <div id="dropzinho" class="dropdown-menu">
               <a class="dropdown-item" href="#"
                 ><i class="bi bi-person"></i> Perfil</a
@@ -254,7 +254,6 @@
         
         <div id="gallery" class="gallery"></div>
     
-        <!-- Modal para mensagens - Atualizado com estilos do primeiro documento -->
         <div class="modal fade" id="mensagemModal" tabindex="-1" aria-labelledby="mensagemModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -263,7 +262,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body" id="mensagemModalBody">
-                        <!-- Aqui será inserido o conteúdo da mensagem -->
+                       
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendi</button>
@@ -282,7 +281,7 @@
 
     <footer>
       <div class="footer-container">
-        <!-- Logo e descrição -->
+    
         <div class="footer-left">
           <button class="upload-btn" id="imgfooter">
             <label for="imgUpload"><i class="bi bi-plus" id="btnn2"></i></label>
