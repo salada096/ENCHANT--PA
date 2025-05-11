@@ -117,7 +117,8 @@ body {
   }
   
   .support-btn:hover {
-    background: #ceb5a0;
+    background-color: #caae8d;
+    color: #3d2106;
   }
   
   @media (max-width: 1024px) {
