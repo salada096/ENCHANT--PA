@@ -1,12 +1,11 @@
 // Inicializar os dados
 const userData = {
-  orgName: "Nome da ONG",
-  institutionName: "Instituição XXXXX",
-  email: "contato-ong@email.com",
-  password: "senha123",
-  cnpj: "XX.XXX.XXX/0001-XX",
-  phone: "(XX) XXXXX-XXXX",
-  profileImage: "/api/placeholder/40/40"
+    orgName: "Nome da ONG", // Mantemos apenas este campo para o nome
+    email: "contato-ong@email.com",
+    password: "12345678C@",
+    cnpj: "12.345.678/0001-95",
+    phone: "(11) 91234-5678",
+    profileImage: "/api/placeholder/40/40"
 };
 
 const donationHistory = [
@@ -54,29 +53,26 @@ function updateHeaderImage(imageUrl) {
 
 // Atualizar interface com dados do usuário
 function updateUI() {
-  document.getElementById("org-name").textContent = userData.orgName;
-  document.getElementById("institution-name").textContent = userData.institutionName;
-  document.getElementById("email").textContent = userData.email;
-  document.getElementById("cnpj").textContent = userData.cnpj;
-  document.getElementById("phone").textContent = userData.phone;
-  document.getElementById("profile-image").src = userData.profileImage;
-  
-  // Atualizar a imagem do cabeçalho
-  updateHeaderImage(userData.profileImage);
-  
-  // Atualizar o nome do usuário no cabeçalho
-  const userNameElement = document.querySelector("#usuario span");
-  if (userNameElement) {
-      userNameElement.textContent = userData.orgName;
-  }
-  
-  // Atualizar os campos do formulário
-  document.getElementById("edit-org-name").value = userData.orgName;
-  document.getElementById("edit-institution-name").value = userData.institutionName;
-  document.getElementById("edit-email").value = userData.email;
-  document.getElementById("edit-password").value = userData.password;
-  document.getElementById("edit-cnpj").value = userData.cnpj;
-  document.getElementById("edit-phone").value = userData.phone;
+    document.getElementById("org-name").textContent = userData.orgName;
+    document.getElementById("institution-name").textContent = userData.orgName;
+    document.getElementById("email").textContent = userData.email;
+    document.getElementById("cnpj").textContent = userData.cnpj;
+    document.getElementById("phone").textContent = userData.phone;
+    document.getElementById("profile-image").src = userData.profileImage;
+    
+    updateHeaderImage(userData.profileImage);
+    
+    const userNameElement = document.querySelector("#usuario span");
+    if (userNameElement) {
+        userNameElement.textContent = userData.orgName;
+    }
+    
+    // Atualizar apenas o campo de nome da ONG no formulário
+    document.getElementById("edit-institution-name").value = userData.orgName;
+    document.getElementById("edit-email").value = userData.email;
+    document.getElementById("edit-password").value = userData.password;
+    document.getElementById("edit-cnpj").value = userData.cnpj;
+    document.getElementById("edit-phone").value = userData.phone;
 }
 
 // Mostrar/ocultar senha
@@ -130,17 +126,29 @@ function closeEditModal() {
   editModal.style.display = "none";
 }
 
-// Salvar alterações
+// Modificar a função saveChanges existente
 function saveChanges() {
-  userData.orgName = document.getElementById("edit-org-name").value;
-  userData.institutionName = document.getElementById("edit-institution-name").value;
-  userData.email = document.getElementById("edit-email").value;
-  userData.password = document.getElementById("edit-password").value;
-  userData.cnpj = document.getElementById("edit-cnpj").value;
-  userData.phone = document.getElementById("edit-phone").value;
-  
-  updateUI();
-  closeEditModal();
+    // Atualizar os dados do usuário
+    userData.orgName = document.getElementById("edit-institution-name").value;
+    userData.email = document.getElementById("edit-email").value;
+    userData.password = document.getElementById("edit-password").value;
+    userData.cnpj = document.getElementById("edit-cnpj").value;
+    userData.phone = document.getElementById("edit-phone").value;
+    
+    // Atualizar o nome no primeiro retângulo
+    const orgNameElement = document.getElementById("org-name");
+    if (orgNameElement) {
+        orgNameElement.textContent = userData.orgName;
+    }
+    
+    // Atualizar o nome na header
+    const headerUserName = document.querySelector("#usuario span");
+    if (headerUserName) {
+        headerUserName.textContent = userData.orgName;
+    }
+    
+    updateUI();
+    closeEditModal();
 }
 
 // Abrir modal de foto
@@ -936,57 +944,52 @@ const validadores = {
 
 // Função principal para validar o formulário inteiro
 function validarFormulario() {
-  const campos = {
-    "edit-org-name": { 
-      valor: document.getElementById("edit-org-name").value,
-      validador: validadores.validarNome,
-      nome: "Nome da ONG"
-    },
-    "edit-institution-name": { 
-      valor: document.getElementById("edit-institution-name").value,
-      validador: validadores.validarNome,
-      nome: "Nome da Instituição"
-    },
-    "edit-email": { 
-      valor: document.getElementById("edit-email").value,
-      validador: validadores.validarEmail,
-      nome: "E-mail"
-    },
-    "edit-password": { 
-      valor: document.getElementById("edit-password").value,
-      validador: validadores.validarSenha,
-      nome: "Senha"
-    },
-    "edit-cnpj": { 
-      valor: document.getElementById("edit-cnpj").value,
-      validador: validadores.validarCNPJ,
-      nome: "CNPJ"
-    },
-    "edit-phone": { 
-      valor: document.getElementById("edit-phone").value,
-      validador: validadores.validarTelefone,
-      nome: "Telefone"
-    }
-  };
-  
-  // Validar cada campo individualmente
-  for (const id in campos) {
-    const campo = campos[id];
-    const resultado = campo.validador(campo.valor);
+    const campos = {
+        "edit-institution-name": { 
+            valor: document.getElementById("edit-institution-name").value,
+            validador: validadores.validarNome,
+            nome: "Nome da ONG" 
+        },
+        "edit-email": { 
+            valor: document.getElementById("edit-email").value,
+            validador: validadores.validarEmail,
+            nome: "E-mail"
+        },
+        "edit-password": { 
+            valor: document.getElementById("edit-password").value,
+            validador: validadores.validarSenha,
+            nome: "Senha"
+        },
+        "edit-cnpj": { 
+            valor: document.getElementById("edit-cnpj").value,
+            validador: validadores.validarCNPJ,
+            nome: "CNPJ"
+        },
+        "edit-phone": { 
+            valor: document.getElementById("edit-phone").value,
+            validador: validadores.validarTelefone,
+            nome: "Telefone"
+        }
+    };
     
-    if (!resultado.valido) {
-      // Mostrar modal de erro para este campo
-      mostrarModalErro(campo.nome, resultado.mensagem);
-      
-      // Destacar campo com erro
-      destacarCampoComErro(id);
-      
-      return false; // Parar na primeira validação que falhar
+    // Validar cada campo individualmente
+    for (const id in campos) {
+        const campo = campos[id];
+        const resultado = campo.validador(campo.valor);
+        
+        if (!resultado.valido) {
+            // Mostrar modal de erro para este campo
+            mostrarModalErro(campo.nome, resultado.mensagem);
+            
+            // Destacar campo com erro
+            destacarCampoComErro(id);
+            
+            return false; // Parar na primeira validação que falhar
+        }
     }
-  }
-  
-  // Se chegou até aqui, todos os campos são válidos
-  return true;
+    
+    // Se chegou até aqui, todos os campos são válidos
+    return true;
 }
 
 // Função para exibir o modal de erro específico para o campo
