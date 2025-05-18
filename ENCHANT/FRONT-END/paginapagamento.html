@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enchant</title>
+    <link rel="stylesheet" href="paginapagamento.css">
+    <!-- Consolidando importações de fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Passion+One:wght@400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Usando apenas Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Favicon corrigido -->
+    <link rel="shortcut icon" href="https://i.ibb.co/7NybZ3W/1.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav id="fixado" class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img
+                    src="https://i.postimg.cc/g0RvMKxc/2475bcce-285c-4b1b-b92b-8e3b0680fef1.png"
+                    width="120"
+                    height="auto"
+                    alt="Logo"
+                    class="img"
+                />
+            </a>
+            <!--Icone de Menu-->
+            <button
+                id="icone"
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#conteudoNavbarSuportado"
+                aria-controls="conteudoNavbarSuportado"
+                aria-expanded="false"
+                aria-label="Alterna navegação"
+                >
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav menu-lateral">
+                <li class="nav-item">
+                <a id="quem" class="nav-link" href="quemsomos1.html" title="Quem somos">Quem somos?</a>
+                </li>
+                <li class="nav-item">
+                <a id="saiba" class="nav-link" href="saibamais1.html" title="Saiba mais">Saiba mais</a>
+                </li>
+                <li class="nav-item">
+                <a id="entrar" class="nav-link" href="entrar1.html" title="Entrar">Entrar</a>
+                </li>
+                <li class="nav-item dropdown">
+            </ul>
+            <a href="#">
+                <button class="btn btn-brown" type="button" id="doeagora">Junte-se a nós</button>
+            </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h2>Pagamento</h2>
+        <section class="pagamento-container">
+            <div class="asd">
+                <div class="detalhes-container">
+                    <div class="titulo">
+                        <h4>Detalhes do cliente</h4>
+                    </div>
+                    <div class="informações">
+                        <div class="detalhe-column">
+                            <p id="nomeong">
+                                Nome da ONG
+                            </p>
+                            <p>
+                                XXXXXXXXXXX
+                            </p>
+                        </div>
+                        <div class="detalhe-column">
+                            <p id="emailong">
+                                Email
+                            </p>
+                            <p>
+                                example@gmail.com.br
+                            </p>
+                        </div>
+                        <div class="detalhe-column">
+                            <p id="telong">
+                                Telefone
+                            </p>
+                            <p>
+                                +55 (XX)XXXXX-XXXX
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detalhes-container">
+                    <div class="titulo">
+                        <h4>Detalhes do pagamento</h4>
+                    </div>
+                    <div class="asd">
+                        <form class="form-pagamento">
+                            <div class="escolher-pagamento">
+                                <input type="radio" name="opcao" value="1" checked onclick="mudarpagamento(1)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00000"><path d="M880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720Zm-720 80h640v-80H160v80Zm0 160v240h640v-240H160Zm0 240v-480 480Z"/></svg>Cartão de crédito
+                                <input type="radio" name="opcao" value="2" onclick="mudarpagamento(2)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00000"><path d="M880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720Zm-720 80h640v-80H160v80Zm0 160v240h640v-240H160Zm0 240v-480 480Z"/></svg>Cartão de débito
+                                <input type="radio" name="opcao" value="3" onclick="mudarpagamento(3)"><i class="fa-brands fa-pix"></i>Pix
+                            </div>
+                            <div>
+                                <label for="numerocartao" id="numerocartaolabel">Número do cartão: <b style="color: #FF0404;">*</b></label>
+                                <input type="number" name="numerocartao" id="numerocartao" placeholder="ex: 0000 0000 0000 0000" autocomplete="off">
+                            </div>
+                            <div class="informaçoes-pagamento">
+                                <div style="display: flex; flex-direction: column;">
+                                    <label for="datavalidade" id="datalabel">Data de expiração: <b style="color: #FF0404;">*</b></label>
+                                    <div>
+                                        <select name="mes" id="mes">
+                                            <option value="" disabled hidden selected>Mês</option>
+                                            <option value="1">01</option>
+                                            <option value="2">02</option>
+                                            <option value="3">03</option>
+                                            <option value="4">04</option>
+                                            <option value="5">05</option>
+                                            <option value="6">06</option>
+                                            <option value="7">07</option>
+                                            <option value="8">08</option>
+                                            <option value="9">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                        <select name="ano" id="ano">
+                                            <option value="" disabled hidden selected>Ano</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2027">2027</option>
+                                            <option value="2028">2028</option>
+                                            <option value="2029">2029</option>
+                                            <option value="2030">2030</option>
+                                            <option value="2031">2031</option>
+                                            <option value="2032">2032</option>
+                                            <option value="2033">2033</option>
+                                            <option value="2034">2034</option>
+                                            <option value="2035">2035</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <label for="cvv" id="cvvlabel">CVV: <b style="color: #FF0404;">*</b></label>
+                                    <input type="text" name="cvv" id="cvv" autocomplete="off">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="pedido">
+                <div class="titulo">
+                    <h4>Pedido</h4>
+                </div>
+                <div>
+                    <div class="valor">
+                        <p>
+                            Valor total:
+                        </p>
+                        <p>
+                            R$ 999,99
+                        </p>
+                    </div>
+                    <div class="valor">
+                        <p>
+                            Subtotal:
+                        </p>
+                        <p>
+                            R$ 999,99
+                        </p>
+                    </div>
+                    <div class="valor">
+                        <p>
+                            Taxa/Impostos:
+                        </p>
+                        <p>
+                            R$ 999,99
+                        </p>
+                    </div>
+                </div>
+                <div class="botaocomprar">
+                    <button id="comprar">
+                        Continuar com a compra
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container"> 
+            <div class="footer-left">
+                <img src="https://i.postimg.cc/g0RvMKxc/2475bcce-285c-4b1b-b92b-8e3b0680fef1.png" alt="Enchant" title="Enchant" id="footer-logo">
+                <p>
+                    De forma alguma o ENCHANT foi criado com o intuito de desviar
+                    os termos relacionados à política de privacidade do
+                    cadastrante. O site está disponível para toda e qualquer ajuda
+                    em relação aos contatos. O site que aqui explica não aceita
+                    qualquer violência verbal, sendo contra toda e qualquer
+                    atividade agressiva.<br><br>
+                    © 2025 ENCHANT Brasil
+                </p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-column">
+                    <h3>MAIS INFORMAÇÕES</h3>
+                    <a href="#" title="Conheça mais sobre o ENCHANT - clique">Conheça mais sobre o ENCHANT</a>
+                </div>
+                <div class="footer-column"  title="PROTEÇÃO DE DADOS - clique">
+                    <h3>PROTEÇÃO DE DADOS</h3>
+                    <a href="#">Política de privacidade</a>
+                </div>
+                <div class="footer-column" title="ACOMPANHE NOSSAS REDES - clique">
+                    <h3>ACOMPANHE NOSSAS REDES</h3>
+                    <a href="https://www.instagram.com/enchant_pa?igsh=MXE5MTZqendmdDJheQ%3D%3D&utm_source=qr" target="_blank">Instagram - enchant_pa</a>
+                    <a href="https://www.linkedin.com/in/enchant-pa-4a5079358?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">Linkedn - enchant_pa</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="paginapagamento.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
