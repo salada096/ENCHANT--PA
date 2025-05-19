@@ -340,8 +340,7 @@ footer-left img {
     outline: none;
     border-radius: 10px;
     color: #4e3629;
-    width: 10rem;
-    height: 3rem;
+   padding: 8px 15px;
     font-weight: 500;
     font-size: 16px;
     margin-top: 1rem;
