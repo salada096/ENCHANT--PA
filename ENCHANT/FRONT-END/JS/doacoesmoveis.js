@@ -1,118 +1,171 @@
-const img1 = document.getElementById("img1");
-const img2 = document.getElementById("img2");
-const img3 = document.getElementById("img3");
-const img4 = document.getElementById("img4");
-const moveisSection = document.getElementById("moveis");
-const eletroSection = document.getElementById("eletro");
-const btnAvancar = document.getElementById("bottao");
-const btnVoltar = document.getElementById("bbotao");
-// Vamos mudar o texto mas manter o estilo
-const btnEnviar = document.getElementById("bbtn");
-const btnBackToRoupas = document.getElementById("back-to-roupas");
-const moveisTab = document.getElementById("moveis-tab");
-const eletroTab = document.getElementById("eletro-tab");
+// Script para validação dos formulários de doação de móveis e eletrodomésticos
 
-// Inicializando os modais do Bootstrap
-const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
-const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
-
-// Botões de fechar modais
-document.getElementById("closeConfirmModal").addEventListener("click", () => {
-    confirmModal.hide();
-});
-
-document.getElementById("closeErrorModal").addEventListener("click", () => {
-    errorModal.hide();
-});
-
-// Botões fechar no "×"
-document.querySelectorAll(".btn-close").forEach(button => {
-    button.addEventListener("click", (e) => {
-        const modalEl = e.target.closest('.modal');
-        const modal = bootstrap.Modal.getInstance(modalEl);
-        if (modal) modal.hide();
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos do formulário de móveis
+    const moveisQualidade = document.getElementById('moveisqualidade');
+    const moveisQuantidade = document.getElementById('moveisquantidade');
+    const moveisDescricao = document.getElementById('moveisdescricao');
+    const moveisReparo = document.getElementById('moveisreparo');
+    
+    // Elementos do formulário de eletrodomésticos
+    const eletroQualidade = document.getElementById('eletroqualidade');
+    const eletroQuantidade = document.getElementById('eletroquantidade');
+    const eletroDescricao = document.getElementById('eletrodescricao');
+    const eletroReparo = document.getElementById('eletroreparo');
+    
+    // Botões de navegação
+    const botaoAvancar = document.getElementById('bottao');
+    const botaoVoltar = document.getElementById('back-to-roupas');
+    const botaoEnviar = document.getElementById('bbtn');
+    
+    // Imagens de fundo
+    const img1 = document.getElementById('img1');
+    const img2 = document.getElementById('img2');
+    const img3 = document.getElementById('img3');
+    const img4 = document.getElementById('img4');
+    
+    // Divs de seção
+    const moveisDiv = document.getElementById('moveis');
+    const eletroDiv = document.getElementById('eletro');
+    
+    // Tabs
+    const moveisTab = document.getElementById('moveis-tab');
+    const eletroTab = document.getElementById('eletro-tab');
+    
+    // Modais
+    const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+    const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+    const erroSenhaModal = new bootstrap.Modal(document.getElementById('erroSenhaModal'));
+    
+    // Mostrar modal inicial quando a página carregar
+    mostrarModalInicial();
+    
+    // Configurar visualização inicial
+    mostrarSecaoMoveis();
+    mostrarImagem1();
+    
+    // Event listeners para tabs
+    moveisTab.addEventListener('click', function() {
+        mostrarSecaoMoveis();
+        mostrarImagem1();
     });
-});
-
-// Function to show clothes section
-function showMoveis() {
-    moveisSection.style.display = "block";
-    eletroSection.style.display = "none";
-    img1.style.display = "block";
-    img2.style.display = "none";
-    img3.style.display = "none";
-    img4.style.display = "none";
     
-    // Update active tab
-    moveisTab.classList.add("active");
-    eletroTab.classList.remove("active");
-}
-
-// Function to show shoes section
-function showEletro() {
-    moveisSection.style.display = "none";
-    eletroSection.style.display = "block";
+    eletroTab.addEventListener('click', function() {
+        mostrarSecaoEletro();
+        mostrarImagem3();
+    });
     
-    // Update active tab
-    moveisTab.classList.remove("active");
-    eletroTab.classList.add("active");
-}
-
-// Function to check if ALL fields in a form section are filled
-function isFormSectionComplete(formId) {
-    const formSection = document.getElementById(formId);
-    const inputs = formSection.querySelectorAll('input, select');
+    // Event listener para botão Avançar - MODIFICADO para não verificar campos
+    botaoAvancar.addEventListener('click', function() {
+        // Apenas muda para a próxima seção sem verificar campos
+        mostrarSecaoEletro();
+        mostrarImagem3();
+    });
     
-    for (let input of inputs) {
-        // Skip hidden inputs or inputs with type="hidden"
-        if (input.type === 'hidden' || getComputedStyle(input).display === 'none') {
-            continue;
-        }
+    // Event listener para botão Voltar
+    botaoVoltar.addEventListener('click', function() {
+        mostrarSecaoMoveis();
+        mostrarImagem1();
+    });
+    
+    // Event listener para botão Enviar
+    botaoEnviar.addEventListener('click', function() {
+        const moveisPreenchido = validarFormularioMoveis();
+        const eletroPreenchido = validarFormularioEletro();
         
-        if (input.tagName === 'SELECT') {
-            if (input.selectedIndex <= 0) return false;
+        if (moveisPreenchido || eletroPreenchido) {
+            if (moveisPreenchido && !eletroPreenchido) {
+                // Se apenas móveis estiver preenchido
+                mostrarImagem2();
+                mostrarConfirmacao('Doação de móveis registrada com sucesso!');
+            } else if (!moveisPreenchido && eletroPreenchido) {
+                // Se apenas eletrodomésticos estiver preenchido
+                mostrarImagem4();
+                mostrarConfirmacao('Doação de eletrodomésticos registrada com sucesso!');
+            } else {
+                // Se ambos estiverem preenchidos
+                mostrarImagem2(); // ou img4, dependendo da preferência
+                mostrarConfirmacao('Doação de móveis e eletrodomésticos registrada com sucesso!');
+            }
         } else {
-            if (input.value.trim() === '') return false;
+            mostrarErro('Por favor, preencha pelo menos um dos formulários (Móveis ou Eletrodomésticos) antes de enviar.');
         }
+    });
+    
+    // Funções auxiliares
+    function validarFormularioMoveis() {
+        return moveisQualidade.value !== '' && 
+               moveisQuantidade.value !== '' && 
+               moveisDescricao.value !== '' && 
+               moveisReparo.value !== '';
     }
     
-    return true; // All fields are filled
-}
-
-// Function to handle form submission
-function handleSubmit() {
-    // Check if all fields in at least one section have been filled
-    const moveisComplete = isFormSectionComplete('moveis');
-    const eletroComplete = isFormSectionComplete('eletro');
+    function validarFormularioEletro() {
+        return eletroQualidade.value !== '' && 
+               eletroQuantidade.value !== '' && 
+               eletroDescricao.value !== '' && 
+               eletroReparo.value !== '';
+    }
     
-    if (moveisComplete || eletroComplete) {
-        // Show success image and modal
-        img1.style.display = "none";
-        img2.style.display = "block";
-        confirmModal.show();
-    } else {
-        // Show error modal with specific message
-        const errorMessageElement = document.getElementById('errorMessage');
-        if (errorMessageElement) {
-            errorMessageElement.textContent = "Por favor, preencha todos os campos de pelo menos uma seção (Móveis ou Eletrodomésticos).";
-        }
+    function mostrarSecaoMoveis() {
+        moveisDiv.style.display = 'block';
+        eletroDiv.style.display = 'none';
+        moveisTab.classList.add('active');
+        eletroTab.classList.remove('active');
+    }
+    
+    function mostrarSecaoEletro() {
+        moveisDiv.style.display = 'none';
+        eletroDiv.style.display = 'block';
+        moveisTab.classList.remove('active');
+        eletroTab.classList.add('active');
+    }
+    
+    function mostrarImagem1() {
+        img1.style.display = 'block';
+        img2.style.display = 'none';
+        img3.style.display = 'none';
+        img4.style.display = 'none';
+    }
+    
+    function mostrarImagem2() {
+        img1.style.display = 'none';
+        img2.style.display = 'block';
+        img3.style.display = 'none';
+        img4.style.display = 'none';
+    }
+    
+    function mostrarImagem3() {
+        img1.style.display = 'none';
+        img2.style.display = 'none';
+        img3.style.display = 'block';
+        img4.style.display = 'none';
+    }
+    
+    function mostrarImagem4() {
+        img1.style.display = 'none';
+        img2.style.display = 'none';
+        img3.style.display = 'none';
+        img4.style.display = 'block';
+    }
+    
+    function mostrarErro(mensagem) {
+        document.getElementById('errorModalBody').innerHTML = `<p>${mensagem}</p>`;
         errorModal.show();
     }
-}
-
-// Note: O HTML já tem o texto como "Enviar" para o btnVoltar (não precisamos mudar o texto)
-// btnVoltar.textContent = "Enviar"; (o texto já está como "Enviar" no HTML)
-
-// Update event listeners
-btnVoltar.removeEventListener("click", showMoveis); // Remove funcionalidade antiga
-btnVoltar.addEventListener("click", handleSubmit); // Adiciona nova funcionalidade de envio
-btnEnviar.addEventListener("click", handleSubmit);
-btnAvancar.addEventListener("click", showEletro);
-btnBackToRoupas.addEventListener("click", showMoveis);
-
-// Tab button event listeners
-moveisTab.addEventListener("click", showMoveis);
-eletroTab.addEventListener("click", showEletro);
-
-// Initialize the page
-showMoveis();
+    
+    function mostrarConfirmacao(mensagem) {
+        document.getElementById('confirmModalBody').innerHTML = `<p>${mensagem}</p>`;
+        confirmModal.show();
+    }
+    
+    function mostrarModalInicial() {
+        document.getElementById('erroSenhaModalBody').innerHTML = `
+            <p>Bem-vindo ao formulário de doação!</p>
+            <p>Por favor, preencha os dados dos móveis ou eletrodomésticos que deseja doar.</p>
+            <p>Após preencher os dados dos móveis, você pode prosseguir para a página de eletrodomésticos, para poder enviar sua doação!</p>
+            
+        `;
+        erroSenhaModal.show();
+    }
+});
