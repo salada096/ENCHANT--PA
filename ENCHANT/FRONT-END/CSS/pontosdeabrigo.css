@@ -180,8 +180,7 @@
             margin-left: 38rem;
             margin-bottom: 98px;
             color: #4e3629;
-            width: 10rem;
-            height: 3rem;
+            padding: 8px 15px;
             font-weight: 400;
             font-size: 16px;
             margin-top: 1rem;
@@ -200,34 +199,30 @@
         
         .gallery {
             margin-top: 30px;
-          
-        
-        
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap; /* Para ajustar itens em telas menores */
-            margin: 0 auto; /* Centraliza o contêiner */
-            width: 100%
-            
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            width: 100%;
+            max-width: 1650px;
+            margin: 0 auto;
         }
         
         .gallery-item {
             height: auto;
             min-height: 200px;
-            
             padding: 12px;
-            margin-bottom: 80px;
+            margin-bottom: 40px;
             border-radius: 20px;
-         
-             border: 1px solid  #ddd;
+            border: 1px solid #ddd;
             display: flex;
             justify-content: center;
-           width: 100%;
-            max-width: 800px;   
+            width: calc(50% - 10px); /* Adjust width to fit two items per row with gap */
+            max-width: 800px;
             align-items: center;
             position: relative;
         }
+        
         
         .gallery-item img {
             width: 200px;
