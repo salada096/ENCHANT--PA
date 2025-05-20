@@ -9,13 +9,15 @@ body {
   box-sizing: border-box;
 }
 
-/* Global box-sizing reset */
 *, 
 *:before, 
 *:after {
   box-sizing: inherit;
 }
-
+#btnn,
+#btnn2{
+  color: #000000;
+}
 .h1 {
     text-align: center;
     color: #693B11;
@@ -24,7 +26,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Correção para container de input */
 .input-container {
     display: flex;
     background-color: #cfac8a;
@@ -158,7 +159,6 @@ textarea {
     width: 90%;
 }
 
-/* Correção para os espaçamentos da galeria */
 .gallery-item {
     height: auto;
     min-height: 200px;
@@ -290,11 +290,6 @@ textarea {
     font-family: 'Lexend Deca', sans-serif;
 }  
 
-.modal-footer {
-    padding: 1rem;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
 
 .modal .btn-primary {
     background-color: rgba(226, 204, 174, 1);
@@ -561,202 +556,6 @@ main {
   border: none;
 }
 
-footer {
-  background-color: #FCF2E8;
-  padding: 20px 5%;
-  font-family: "Lexend Deca", sans-serif;
-  box-sizing: border-box;
-  z-index: 800;
-  width: 100%;
-}
-
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-}
-
-.footer-left {
-  flex: 1;
-  min-width: 250px;
-  max-width: 400px;
-  font-size: 12px;
-}
-
-.footer-left p {
-  font-size: 10px;
-}
-
-.footer-logo {
-  height: 90px;
-  margin-bottom: 10px;
-  max-width: 100%;
-}
-
-.footer-right {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-top: 20px;
-  flex: 2;
-}
-
-.footer-column {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-width: 150px;
-  text-align: center;
-}
-
-.footer-column h3 {
-  font-weight: 400;
-  font-size: 16px;
-  color: #535151;
-  margin-bottom: 10px;
-}
-
-.footer-column a:hover {
-  color: #8B7777;
-}
-
-.footer-column a {
-  color: #EC9E07;
-  text-decoration: none;
-  font-size: 12px;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.footer-column a:hover {
-  text-decoration: underline;
-}
-
-#imgfooter {
-  background-color: #D3D3D3;
-  border: none;
-  height: 60px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  max-width: 200px;
-  margin-bottom: 20px;
-}
-
-#btnn {
-  width: 7.5rem;
-  display: inline-block;
-}
-
-#btnn2 {
-  width: 180px;
-  padding: 10px;
-  display: inline-block;
-  align-items: center;
-}
-
-i {
-  font-size: 23px;
-}
-
-#dropzinho {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  display: none;
-  background: #ECECEC;
-  border: none;
-  border-radius: 8px;
-  padding: 10px;
-  min-width: 150px;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.bi-person {
-  font-size: 1.1rem;
-}
-
-.bi-box-arrow-right {
-  font-size: 1.1rem;
-}
-
-/* Media Queries */
-@media (max-width: 992px) {
-  .gallery-item {
-    width: 100%;
-  }
-  
-  .input-container {
-    width: 95%;
-  }
-  
-  .button-group {
-    margin-right: 2.5%;
-  }
-}
-
-@media (max-width: 768px) {
-  .input-container {
-    flex-direction: column;
-    padding: 15px;
-  }
-  
-  .input-image-container {
-    width: 210px;
-    height: 200px;
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-  
-  .gallery-item {
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-  }
-  
-  .gallery-item img {
-    width: 90%;
-    max-width: 250px;
-    height: auto;
-    margin-right: 0;
-    margin-bottom: 15px;
-  }
-  
-  .gallery-info {
-    max-width: 100%;
-    width: 100%;
-  }
-  
-  .action-buttons {
-    position: static;
-    margin-top: 15px;
-    justify-content: center;
-  }
-  
-  .footer-container {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .footer-left, .footer-right {
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .footer-right {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .footer-column {
-    width: 100%;
-    min-width: 100%;
-  }
-}
-
 @media (max-width: 576px) {
   .h1 {
     font-size: 22px;
@@ -996,50 +795,7 @@ i {
     margin-top: 1rem;
   }
   
-  /* Rodapé */
-  footer {
-    padding: 15px 10px;
-  }
-  
-  .footer-container {
-    gap: 15px;
-  }
-  
-  .footer-left {
-    min-width: 100%;
-    text-align: center;
-  }
-  
-  .footer-logo {
-    height: 70px;
-    margin: 0 auto 10px auto;
-  }
-  
-  .footer-right {
-    gap: 15px;
-    margin-top: 10px;
-  }
-  
-  .footer-column {
-    min-width: 100%;
-  }
-  
-  .footer-column h3 {
-    font-size: 14px;
-  }
-  
-  .footer-column a {
-    font-size: 11px;
-  }
-  
-  #imgfooter {
-    height: 50px;
-    max-width: 150px;
-    margin: 0 auto 15px auto;
-    display: block;
-  }
-  
-  /* Perfil e dropdown */
+
   .profile-dropdown {
     right: 5px;
   }
