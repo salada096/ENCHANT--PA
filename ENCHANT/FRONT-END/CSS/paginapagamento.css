@@ -150,7 +150,7 @@ main h2{
     justify-content: flex-end;
     align-items: center;
 }
-#numerocartao{
+#numerocartao, #numerocartaodebito{
     width: 100%;
     height: auto;
     border: 1px solid #B7B6B6;
@@ -162,20 +162,20 @@ input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-#numerocartao:focus{
+#numerocartao:focus, #numerocartaodebito:focus{
     outline: none;
 }
-#cvv{
+#cvv, #cvvdebito{
     width: 340px;
     height: auto;
     border: 1px solid #B7B6B6;
     padding: 10px 15px 10px 15px;
     border-radius: 50px;
 }
-#cvv:focus{
+#cvv:focus, #cvvdebito:focus{
     outline: none;
 }
-#mes{
+#mes, #mesdebito{
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -186,7 +186,7 @@ input[type="number"]::-webkit-outer-spin-button {
     border-radius: 50px 0px 0px 50px;
     color: #757575;
 }
-#ano{
+#ano, #anodebito{
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -198,7 +198,9 @@ input[type="number"]::-webkit-outer-spin-button {
     color: #757575;
 }
 #mes:focus, 
-#ano:focus{
+#ano:focus,
+#anodebito:focus,
+#mesdebito:focus{
     box-shadow: none;
     outline: none;
 }
@@ -206,6 +208,12 @@ input[type="number"]::-webkit-outer-spin-button {
     color: black;
 }
 #ano option:not(:first-child){
+    color: black;
+}
+#mesdebito option:not(:first-child){
+    color: black;
+}
+#anodebito option:not(:first-child){
     color: black;
 }
 
@@ -219,9 +227,29 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
     justify-content: space-between;
 }
-#cvvlabel, #datalabel, #numerocartaolabel{
+#cvvlabel, #datalabel, #numerocartaolabel, #nomecompletolabel, #cpflabel, #cvvdebitolabel{
     line-height: 45px;
     margin-left: 15px;
+}
+#nomecompleto{
+    width: 100%;
+    height: auto;
+    border: 1px solid #B7B6B6;
+    padding: 10px 15px 10px 15px;
+    border-radius: 50px;
+}
+#nomecompleto:focus{
+    outline: none;
+}
+#cpf{
+    width: 100%;
+    height: auto;
+    border: 1px solid #B7B6B6;
+    padding: 10px 15px 10px 15px;
+    border-radius: 50px;
+}
+#cpf:focus{
+    outline: none;
 }
 /*
 ------------------------ Footer Area ------------------------
