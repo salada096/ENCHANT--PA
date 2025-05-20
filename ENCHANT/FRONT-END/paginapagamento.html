@@ -106,49 +106,103 @@
                                 <input type="radio" name="opcao" value="2" onclick="mudarpagamento(2)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00000"><path d="M880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720Zm-720 80h640v-80H160v80Zm0 160v240h640v-240H160Zm0 240v-480 480Z"/></svg>Cartão de débito
                                 <input type="radio" name="opcao" value="3" onclick="mudarpagamento(3)"><i class="fa-brands fa-pix"></i>Pix
                             </div>
-                            <div>
-                                <label for="numerocartao" id="numerocartaolabel">Número do cartão: <b style="color: #FF0404;">*</b></label>
-                                <input type="number" name="numerocartao" id="numerocartao" placeholder="ex: 0000 0000 0000 0000" autocomplete="off">
-                            </div>
-                            <div class="informaçoes-pagamento">
-                                <div style="display: flex; flex-direction: column;">
-                                    <label for="datavalidade" id="datalabel">Data de expiração: <b style="color: #FF0404;">*</b></label>
-                                    <div>
-                                        <select name="mes" id="mes">
-                                            <option value="" disabled hidden selected>Mês</option>
-                                            <option value="1">01</option>
-                                            <option value="2">02</option>
-                                            <option value="3">03</option>
-                                            <option value="4">04</option>
-                                            <option value="5">05</option>
-                                            <option value="6">06</option>
-                                            <option value="7">07</option>
-                                            <option value="8">08</option>
-                                            <option value="9">09</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
-                                        <select name="ano" id="ano">
-                                            <option value="" disabled hidden selected>Ano</option>
-                                            <option value="2025">2025</option>
-                                            <option value="2026">2026</option>
-                                            <option value="2027">2027</option>
-                                            <option value="2028">2028</option>
-                                            <option value="2029">2029</option>
-                                            <option value="2030">2030</option>
-                                            <option value="2031">2031</option>
-                                            <option value="2032">2032</option>
-                                            <option value="2033">2033</option>
-                                            <option value="2034">2034</option>
-                                            <option value="2035">2035</option>
-                                        </select>
+                            <div class="cartao-credito">
+                                <div>
+                                    <label for="numerocartao" id="numerocartaolabel">Número do cartão: <b style="color: #FF0404;">*</b></label>
+                                    <input type="number" name="numerocartao" id="numerocartao" placeholder="ex: 0000 0000 0000 0000" autocomplete="off">
+                                </div>
+                                <div class="informaçoes-pagamento">
+                                    <div style="display: flex; flex-direction: column;">
+                                        <label for="datavalidade" id="datalabel">Data de expiração: <b style="color: #FF0404;">*</b></label>
+                                        <div>
+                                            <select name="mes" id="mes">
+                                                <option value="" disabled hidden selected>Mês</option>
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                            <select name="ano" id="ano">
+                                                <option value="" disabled hidden selected>Ano</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026">2026</option>
+                                                <option value="2027">2027</option>
+                                                <option value="2028">2028</option>
+                                                <option value="2029">2029</option>
+                                                <option value="2030">2030</option>
+                                                <option value="2031">2031</option>
+                                                <option value="2032">2032</option>
+                                                <option value="2033">2033</option>
+                                                <option value="2034">2034</option>
+                                                <option value="2035">2035</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column;">
+                                        <label for="cvv" id="cvvlabel">CVV: <b style="color: #FF0404;">*</b></label>
+                                        <input type="text" name="cvv" id="cvv" autocomplete="off" minlength="3" maxlength="4">
                                     </div>
                                 </div>
-                                <div style="display: flex; flex-direction: column;">
-                                    <label for="cvv" id="cvvlabel">CVV: <b style="color: #FF0404;">*</b></label>
-                                    <input type="text" name="cvv" id="cvv" autocomplete="off">
+                            </div>
+                            <div class="cartao-debito">
+                                <div>
+                                    <label for="numerocartao" id="numerocartaolabel">Número do cartão: <b style="color: #FF0404;">*</b></label>
+                                    <input type="number" name="numerocartaodebito" id="numerocartaodebito" placeholder="ex: 0000 0000 0000 0000" autocomplete="off">
                                 </div>
+                                <div class="informaçoes-pagamento">
+                                    <div style="display: flex; flex-direction: column;">
+                                        <label for="datavalidade" id="datalabel">Data de expiração: <b style="color: #FF0404;">*</b></label>
+                                        <div>
+                                            <select name="mesdebito" id="mesdebito">
+                                                <option value="" disabled hidden selected>Mês</option>
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                            <select name="anodebito" id="anodebito">
+                                                <option value="" disabled hidden selected>Ano</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026">2026</option>
+                                                <option value="2027">2027</option>
+                                                <option value="2028">2028</option>
+                                                <option value="2029">2029</option>
+                                                <option value="2030">2030</option>
+                                                <option value="2031">2031</option>
+                                                <option value="2032">2032</option>
+                                                <option value="2033">2033</option>
+                                                <option value="2034">2034</option>
+                                                <option value="2035">2035</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column;">
+                                        <label for="cvvdebito" id="cvvdebitolabel">CVV: <b style="color: #FF0404;">*</b></label>
+                                        <input type="number" name="cvvdebito" id="cvvdebito" autocomplete="off" minlength="3" maxlength="4">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pix">
+                                <label for="nomecompleto" id="nomecompletolabel">Nome completo: <b style="color: #FF0404;">*</b></label>
+                                <input type="text" name="nomecompleto" id="nomecompleto" autocomplete="off" required>
+                                <label for="cpf" id="cpflabel">CPF: <b style="color: #FF0404;">*</b></label>
+                                <input type="number" name="cpf" id="cpf" autocomplete="off" required>
                             </div>
                         </form>
                     </div>
