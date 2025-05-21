@@ -52,14 +52,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     eletroTab.addEventListener('click', function() {
         mostrarSecaoEletro();
-        mostrarImagem3();
+        mostrarImagem1();
     });
     
     // Event listener para botão Avançar - MODIFICADO para não verificar campos
     botaoAvancar.addEventListener('click', function() {
         // Apenas muda para a próxima seção sem verificar campos
         mostrarSecaoEletro();
-        mostrarImagem3();
+        mostrarImagem1();
     });
     
     // Event listener para botão Voltar
