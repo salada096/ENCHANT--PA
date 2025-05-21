@@ -142,17 +142,17 @@ botaoEnviar.addEventListener('click', function () {
     }
     
     function mostrarImagem3() {
-        img1.style.display = 'none';
+        img1.style.display = 'block';
         img2.style.display = 'none';
-        img3.style.display = 'block';
+        img3.style.display = 'none';
         img4.style.display = 'none';
     }
     
     function mostrarImagem4() {
         img1.style.display = 'none';
-        img2.style.display = 'none';
+        img2.style.display = 'block';
         img3.style.display = 'none';
-        img4.style.display = 'block';
+        img4.style.display = 'none';
     }
     
     function mostrarErro(mensagem) {
