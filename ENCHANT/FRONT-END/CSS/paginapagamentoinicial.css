@@ -1,5 +1,8 @@
+/* Adding responsive styles to the existing paginapagamentoinicial.css */
+
 @import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+
 :root{
     --corfundo: #F5F5F5;
     --corfundo-footer: #fcf2e8;
@@ -10,20 +13,23 @@
     --cortexto: #535151;
     --corlink: #EC9E07;
 }
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Lexend Deca", sans-serif;
 }
+
 body{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--corfundo);
     justify-content: space-between;
 }
+
 /*
 ------------------------ Header Area ------------------------
 */
@@ -36,10 +42,12 @@ body{
     gap: 0.5rem;
     margin-left: 20px;
 }
+
 .img {
     margin-top: -0.6rem;
     margin-left: 1rem;
 } 
+
 #doeagora {
     background-color: var(--corbotao1);
     border-color: var(--corbotao1);
@@ -49,10 +57,12 @@ body{
     width: 10rem;
     margin-right: 2rem;
 }
+
 #doeagora:hover {
     background-color: var(--corbotao2);
     border:1px solid var(--corbotao2);
 }
+
 /*
 ------------------------ Main Area ------------------------
 */
@@ -62,22 +72,30 @@ main{
     gap: 2rem;
     padding: 2rem 0rem 7rem 0rem;
 }
+
 .pagamento{
     color: var(--cortitulo);
     text-align: center;
     font-weight: 700;
 }
+
 .container{
     display: flex;
     flex-direction: column;
     background-color: var(--corfundo-container);
     padding: 2rem 0;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 10px;
 }
+
 form{
     display: flex;
     flex-direction: column;
     padding: 0 3rem;
 }
+
 #email, #cnpj, #nomecomprador, #tel{
     width: 100%;
     height: auto;
@@ -85,6 +103,7 @@ form{
     padding: 10px 15px 10px 15px;
     border-radius: 50px;
 }
+
 #estado, #cidade{
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -96,51 +115,70 @@ form{
     border-radius: 50px;
     color: #757575;
 }
+
 #estado:focus, #cidade:focus, #email:focus, #cnpj:focus, #nomecomprador:focus, #tel:focus{
     outline: none;
 }
+
 #estado option:not(:first-child), #cidade option:not(:first-child){
     color: black;
 }
+
 label{
     line-height: 45px;
     margin-left: 15px;
 }
+
 input[type="number"]::-webkit-inner-spin-button, 
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+/* ÁREA DE SENHA ATUALIZADA */
 .senha-area{
     display: flex;
     justify-content: space-between;
+    gap: 20px; /* Adiciona espaçamento entre os campos */
 }
+
+.senha-area > div {
+    width: 48%; /* Ajusta para ocupar quase metade do espaço disponível */
+}
+
 #senha, #confirmarsenha{
-    width: 500px;
+    width: 100%;
     height: auto;
     border: 1px solid #B7B6B6;
-    padding: 10px 15px 10px 15px;
+    padding: 10px 15px;
     border-radius: 50px;
 }
+
 #senha:focus, #confirmarsenha:focus{
     outline: none;
 }
+
 #senha-conter{
     color: var(--cortitulo);
 }
+
 .requerimento-senha p{
-    line-height: 5px;
+    line-height: 25px; /* Aumentado de 5px para melhor visualização */
     font-size: 12px;
 }
+
 .requerimento-senha p:not(:first-child){
     margin-left: 10px;
     color: #757575;
 }
+
 .div-botao-continuar{
     display: flex;
     width: 100%;
     justify-content: center;
+    margin-top: 20px;
 }
+
 .botao-continuar{
     border: none;
     background-color: var(--corbotao1);
@@ -149,14 +187,22 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 10px;
     width: 200px;
     border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
+
 .botao-continuar:hover{
     background-color: var(--corbotao2);
 }
+
 .botao-continuar a{
     text-decoration: none;
     color: var(--cortitulo);
+    display: block;
+    width: 100%;
+    height: 100%;
 }
+
 /*
 ------------------------ Footer Area ------------------------
 */
@@ -169,6 +215,7 @@ input[type="number"]::-webkit-outer-spin-button {
     gap: 40px;
     padding: 20px 50px;
 }
+
 .footer-left{
     display: flex;
     flex-direction: column;
@@ -176,31 +223,280 @@ input[type="number"]::-webkit-outer-spin-button {
     height: 100%;
     gap: 10px;
 }
+
 #footer-logo{
     width: 200px;
     height: auto;
 }
+
 .footer-left p{
     font-size: 10px;
     color: var(--cortexto);
 }
+
 .footer-right{
     display: flex;
     height: 100%;
 }
+
 .footer-column {
     flex: 2;
     min-width: 200px;
     text-align: center;
 }
+
 .footer-right h3{
     font-weight: 400;
     font-size: 14px;
     color: var(--cortexto);
 }
+
 .footer-right a{
     color: var(--corlink);
     text-decoration: none;
     font-size: 12px;
     display: block;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+    color: #8B7777;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 1023px) {
+    /* Navbar modifications */
+    #fixado {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .navbar-brand img {
+        width: 100px;
+    }
+    
+    #doeagora {
+        width: 8rem;
+        margin-right: 1rem;
+        font-size: 14px;
+    }
+    
+    /* Main area adjustments */
+    main {
+        padding: 1rem 0rem 5rem 0rem;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 1.5rem 0;
+    }
+    
+    form {
+        padding: 0 1.5rem;
+    }
+    
+    /* Mantém os campos de senha mais largos em tablets */
+    .senha-area > div {
+        width: 48%;
+    }
+    
+    /* Footer adjustments */
+    .footer-container {
+        padding: 20px 40px;
+        gap: 30px;
+    }
+    
+    .footer-left {
+        max-width: 250px;
+    }
+    
+    .footer-right {
+        gap: 20px;
+    }
+    
+    .footer-column {
+        min-width: 150px;
+    }
+    
+    .footer-column h3 {
+        font-size: 12px;
+    }
+    
+    .footer-column a {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar further adjustments */
+    .img {
+        margin-left: 0.5rem;
+        margin-top: -0.4rem;
+    }
+    
+    #doeagora {
+        width: 7.5rem;
+        font-size: 13px;
+    }
+    
+    .navbar-nav {
+        margin-left: 10px;
+        gap: 0.3rem;
+    }
+    
+    /* Form adjustments */
+    form {
+        padding: 0 1rem;
+    }
+    
+    label {
+        line-height: 35px;
+        margin-left: 10px;
+        font-size: 14px;
+    }
+    
+    /* Password area adjustments */
+    .senha-area {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .senha-area > div {
+        width: 100%; /* Cada campo ocupa 100% da largura em telas pequenas */
+    }
+    
+    /* Footer adjustments */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 30px;
+        gap: 20px;
+    }
+    
+    .footer-left {
+        max-width: 100%;
+    }
+    
+    #footer-logo {
+        width: 160px;
+        margin: 0 auto;
+    }
+    
+    .footer-right {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+    
+    .footer-column {
+        min-width: auto;
+    }
+    
+    .footer-column h3 {
+        font-size: 12px;
+    }
+    
+    .footer-column a {
+        font-size: 10px;
+    }
+    
+    .requerimento-senha p {
+        line-height: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Further adjustments for very small screens */
+    main {
+        padding: 1rem 0rem 3rem 0rem;
+        gap: 1rem;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 1rem 0;
+    }
+    
+    .pagamento {
+        font-size: 22px;
+    }
+    
+    #email, #cnpj, #nomecomprador, #tel, #estado, #cidade, #senha, #confirmarsenha {
+        padding: 8px 12px;
+    }
+    
+    .botao-continuar {
+        width: 180px;
+        font-size: 14px;
+    }
+    
+    .requerimento-senha p {
+        font-size: 11px;
+        line-height: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+    form {
+        padding: 0 0.7rem;
+    }
+    
+    label {
+        margin-left: 5px;
+        font-size: 13px;
+    }
+    
+    #footer-logo {
+        width: 140px;
+    }
+    
+    .botao-continuar {
+        width: 160px;
+    }
+    
+    .senha-area {
+        margin-bottom: 10px;
+    }
+}
+
+/* Ajustes para visualização correta do menu móvel */
+@media (max-width: 991px) {
+    /* Menu responsivo Bootstrap */
+    #conteudoNavbarSuportado {
+        background-color: #ECECEC;
+        border-radius: 8px;
+        margin-top: 10px;
+        padding: 15px;
+        z-index: 1000;
+    }
+    
+    .navbar-nav {
+        flex-direction: column;
+        margin-left: 0;
+        align-items: flex-start;
+    }
+    
+    .nav-item {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .nav-link {
+        padding: 8px 0;
+    }
+    
+    /* Botão doação no menu mobile */
+    .navbar-collapse a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    #doeagora {
+        width: 100%;
+        margin-right: 0;
+    }
 }
