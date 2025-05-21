@@ -163,7 +163,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .requerimento-senha p{
-    line-height: 25px; /* Aumentado de 5px para melhor visualização */
+    line-height: 5px; /* Aumentado de 5px para melhor visualização */
     font-size: 12px;
 }
 
@@ -403,7 +403,7 @@ input[type="number"]::-webkit-outer-spin-button {
     }
     
     .requerimento-senha p {
-        line-height: 20px;
+        line-height: 5px;
     }
 }
 
@@ -434,7 +434,7 @@ input[type="number"]::-webkit-outer-spin-button {
     
     .requerimento-senha p {
         font-size: 11px;
-        line-height: 18px;
+        line-height: 5px;
     }
 }
 
