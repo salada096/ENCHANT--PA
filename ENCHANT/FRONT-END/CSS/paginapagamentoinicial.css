@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+:root{
+    --corfundo: #F5F5F5;
+    --corfundo-footer: #fcf2e8;
+    --corfundo-container: #F9E7D2;
+    --corbotao1: #e2ccae;
+    --corbotao2: #caae8d;
+    --cortitulo: #4E3629;
+    --cortexto: #535151;
+    --corlink: #EC9E07;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lexend Deca", sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--corfundo);
+    justify-content: space-between;
+}
+/*
+------------------------ Header Area ------------------------
+*/
+.navbar-nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;
+    gap: 0.5rem;
+    margin-left: 20px;
+}
+.img {
+    margin-top: -0.6rem;
+    margin-left: 1rem;
+} 
+#doeagora {
+    background-color: var(--corbotao1);
+    border-color: var(--corbotao1);
+    color: var(--cortitulo);
+    font-weight: 700;
+    font-size: 16px;
+    width: 10rem;
+    margin-right: 2rem;
+}
+#doeagora:hover {
+    background-color: var(--corbotao2);
+    border:1px solid var(--corbotao2);
+}
+/*
+------------------------ Main Area ------------------------
+*/
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0rem 7rem 0rem;
+}
+.pagamento{
+    color: var(--cortitulo);
+    text-align: center;
+    font-weight: 700;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--corfundo-container);
+    padding: 2rem 0;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 0 3rem;
+}
+#email, #cnpj, #nomecomprador, #tel{
+    width: 100%;
+    height: auto;
+    border: 1px solid #B7B6B6;
+    padding: 10px 15px 10px 15px;
+    border-radius: 50px;
+}
+#estado, #cidade{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: auto;
+    border: 1px solid #B7B6B6;
+    padding: 10px 15px 10px 15px;
+    border-radius: 50px;
+    color: #757575;
+}
+#estado:focus, #cidade:focus, #email:focus, #cnpj:focus, #nomecomprador:focus, #tel:focus{
+    outline: none;
+}
+#estado option:not(:first-child), #cidade option:not(:first-child){
+    color: black;
+}
+label{
+    line-height: 45px;
+    margin-left: 15px;
+}
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.senha-area{
+    display: flex;
+    justify-content: space-between;
+}
+#senha, #confirmarsenha{
+    width: 500px;
+    height: auto;
+    border: 1px solid #B7B6B6;
+    padding: 10px 15px 10px 15px;
+    border-radius: 50px;
+}
+#senha:focus, #confirmarsenha:focus{
+    outline: none;
+}
+#senha-conter{
+    color: var(--cortitulo);
+}
+.requerimento-senha p{
+    line-height: 5px;
+    font-size: 12px;
+}
+.requerimento-senha p:not(:first-child){
+    margin-left: 10px;
+    color: #757575;
+}
+.div-botao-continuar{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.botao-continuar{
+    border: none;
+    background-color: var(--corbotao1);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px;
+    width: 200px;
+    border-radius: 8px;
+}
+.botao-continuar:hover{
+    background-color: var(--corbotao2);
+}
+.botao-continuar a{
+    text-decoration: none;
+    color: var(--cortitulo);
+}
+/*
+------------------------ Footer Area ------------------------
+*/
+.footer-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: var(--corfundo-footer);
+    gap: 40px;
+    padding: 20px 50px;
+}
+.footer-left{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    height: 100%;
+    gap: 10px;
+}
+#footer-logo{
+    width: 200px;
+    height: auto;
+}
+.footer-left p{
+    font-size: 10px;
+    color: var(--cortexto);
+}
+.footer-right{
+    display: flex;
+    height: 100%;
+}
+.footer-column {
+    flex: 2;
+    min-width: 200px;
+    text-align: center;
+}
+.footer-right h3{
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--cortexto);
+}
+.footer-right a{
+    color: var(--corlink);
+    text-decoration: none;
+    font-size: 12px;
+    display: block;
+}
