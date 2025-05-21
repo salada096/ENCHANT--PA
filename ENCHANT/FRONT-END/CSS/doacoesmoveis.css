@@ -127,6 +127,12 @@ body {
     display:none;
 }
 
+.button-container1 {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
 
 
 .botaozinho {
