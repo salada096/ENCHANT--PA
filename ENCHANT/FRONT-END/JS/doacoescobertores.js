@@ -100,7 +100,7 @@ botaoEnviar.addEventListener('click', function () {
     
     // Funções auxiliares
     function validarFormularioCobertores() {
-        return cobertoresQualidade !== '' && 
+        return cobertoresQualidade.value !== '' && 
                cobertoresQuantidade.value !== '';
     }
 
