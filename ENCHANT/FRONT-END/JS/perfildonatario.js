@@ -40,52 +40,29 @@ function updateHeaderImage(imageUrl) {
 
 // Atualizar interface com dados do usuário
 function updateUI() {
-    // Verificar se cada elemento existe antes de tentar atualizar
-    const updateElement = (id, value) => {
-        const element = document.getElementById(id);
-        if (element) element.textContent = value;
-    };
-
-    updateElement("org-name", userData.orgName);
-    updateElement("institution-name", userData.orgName);
-    updateElement("email", userData.email);
-    updateElement("cpf", userData.cpf);
-    updateElement("rg", userData.rg);
-    updateElement("phone", userData.phone);
-    updateElement("genro", userData.genero);
-    updateElement("estadocivil", userData.estadoCivil);
-    updateElement("status", userData.statusOcupacao);
-    updateElement("residentes", userData.residentes);
+    // Atualizar informações pessoais
+    document.getElementById("org-name").textContent = userData.orgName;
+    document.getElementById("institution-name").textContent = userData.orgName;
+    document.getElementById("email").textContent = userData.email;
+    document.getElementById("cpf").textContent = userData.cpf;
+    document.getElementById("rg").textContent = userData.rg;
+    document.getElementById("phone").textContent = userData.phone;
+    document.getElementById("genro").textContent = userData.genero;
+    document.getElementById("estadoCivil").textContent = userData.estadoCivil;
+    document.getElementById("status").textContent = userData.statusOcupacao;
+    document.getElementById("residentes").textContent = userData.residentes;
     
-    const profileImageElement = document.getElementById("profile-image");
-    if (profileImageElement) profileImageElement.src = userData.profileImage;
-    
-    updateHeaderImage(userData.profileImage);
-    
+    // Atualizar nome no header
     const userNameElement = document.querySelector("#usuario span");
     if (userNameElement) {
         userNameElement.textContent = userData.orgName;
     }
     
-    // Atualizar campos do formulário de edição
-    const updateFormField = (id, value) => {
-        const field = document.getElementById(id);
-        if (field) field.value = value;
-    };
-    
-    updateFormField("edit-institution-name", userData.orgName);
-    updateFormField("edit-email", userData.email);
-    updateFormField("edit-password", userData.password);
-    updateFormField("edit-cpf", userData.cpf);
-    updateFormField("edit-rg", userData.rg);
-    updateFormField("edit-phone", userData.phone);
-    updateFormField("edit-genero", userData.genero);
-    updateFormField("edit-estado-civil", userData.estadoCivil);
-    updateFormField("edit-status-ocupacao", userData.statusOcupacao);
-    updateFormField("edit-residentes", userData.residentes);
-    updateFormField("edit-listados", userData.listados);
-    
-    console.log("UI atualizada com sucesso");
+    // Atualizar imagem de perfil
+    const profileImage = document.getElementById("profile-image");
+    if (profileImage) {
+        profileImage.src = userData.profileImage;
+    }
 }
 // Mostrar/ocultar senha
 if (togglePassword) {
@@ -102,50 +79,45 @@ if (togglePassword) {
   }
   
 
-  function openEditModal() {
-    const modalOverlay = createModalOverlay();
-    modalOverlay.style.display = "block";
-    document.body.style.overflow = "hidden";
+function openEditModal() {
     
-    if (editModal) {
-      editModal.style.display = "flex";
-      editModal.style.zIndex = "1060";
-      
-      // Configurar o botão de mostrar/ocultar senha do modal de edição
-      const editPasswordField = document.getElementById("edit-password");
-      const toggleEditPassword = document.getElementById("toggle-edit-password");
-      
-      if (toggleEditPassword && editPasswordField) {
-          toggleEditPassword.addEventListener("click", function() {
-              if (editPasswordField.type === "password") {
-                  editPasswordField.type = "text";
-                  toggleEditPassword.innerHTML = '<span class="material-symbols-outlined">visibility_off</span>';
-              } else {
-                  editPasswordField.type = "password";
-                  toggleEditPassword.innerHTML = '<span class="material-symbols-outlined">visibility</span>';
-              }
-          });
-      }
-      
-      updateUI();
-    } else {
-      console.error("Modal de edição não encontrado");
-      modalOverlay.style.display = "none";
+    document.body.classList.add('modal-open');
+    document.getElementById("edit-modal").style.display = "flex";
+
+    document.getElementById("edit-institution-name").value = userData.orgName;
+    document.getElementById("edit-email").value = userData.email;
+    document.getElementById("edit-password").value = userData.password;
+    document.getElementById("edit-cpf").value = userData.cpf;
+    document.getElementById("edit-rg").value = userData.rg;
+    document.getElementById("edit-phone").value = userData.phone;
+    document.getElementById("edit-genero").value = userData.genero;
+    document.getElementById("edit-estado-civil").value = userData.estadoCivil;
+    document.getElementById("edit-status-ocupacao").value = userData.statusOcupacao;
+    document.getElementById("edit-residentes").value = userData.residentes;
+    document.getElementById("edit-listados").value = userData.listados;
+    
+    // Configurar toggle de senha
+    const toggleEditPassword = document.getElementById("toggle-edit-password");
+    const editPasswordField = document.getElementById("edit-password");
+    
+    if (toggleEditPassword && editPasswordField) {
+        toggleEditPassword.onclick = function() {
+            if (editPasswordField.type === "password") {
+                editPasswordField.type = "text";
+                toggleEditPassword.innerHTML = '<span class="material-symbols-outlined">visibility_off</span>';
+            } else {
+                editPasswordField.type = "password";
+                toggleEditPassword.innerHTML = '<span class="material-symbols-outlined">visibility</span>';
+            }
+        };
     }
-  }
-  
+}
+
   // Fechar modal de edição
-  function closeEditModal() {
-    const modalOverlay = document.getElementById("modal-overlay");
-    if (modalOverlay) {
-        modalOverlay.style.display = "none";
-    }
-    document.body.style.overflow = "auto";
-    
-    if (editModal) {
-      editModal.style.display = "none";
-    }
-  }
+function closeEditModal() {
+    document.body.classList.remove('modal-open');
+    document.getElementById("edit-modal").style.display = "none";
+}
 
 // Fechar modal de edição
 function closeEditModal() {
@@ -160,69 +132,38 @@ function closeEditModal() {
 // Modificar a função saveChanges existente
 
 function saveChanges() {
-    console.log("Iniciando salvamento de alterações...");
-    
-    try {
-        // Obter valores dos campos
-        const getFieldValue = (id) => {
-            const field = document.getElementById(id);
-            return field ? field.value : null;
-        };
-        
-        // Atualizar cada campo apenas se ele existir no formulário
-        if (getFieldValue("edit-institution-name") !== null)
-            userData.orgName = getFieldValue("edit-institution-name");
-            
-        if (getFieldValue("edit-email") !== null)
-            userData.email = getFieldValue("edit-email");
-            
-        if (getFieldValue("edit-password") !== null)
-            userData.password = getFieldValue("edit-password");
-            
-        if (getFieldValue("edit-cpf") !== null)
-            userData.cpf = getFieldValue("edit-cpf");
-            
-        if (getFieldValue("edit-rg") !== null)
-            userData.rg = getFieldValue("edit-rg");
-            
-        if (getFieldValue("edit-phone") !== null)
-            userData.phone = getFieldValue("edit-phone");
-            
-        if (getFieldValue("edit-genero") !== null)
-            userData.genero = getFieldValue("edit-genero");
-            
-        if (getFieldValue("edit-estado-civil") !== null)
-            userData.estadoCivil = getFieldValue("edit-estado-civil");
-            
-        if (getFieldValue("edit-status-ocupacao") !== null)
-            userData.statusOcupacao = getFieldValue("edit-status-ocupacao");
-            
-        if (getFieldValue("edit-residentes") !== null)
-            userData.residentes = getFieldValue("edit-residentes");
-            
-        if (getFieldValue("edit-listados") !== null)
-            userData.listados = getFieldValue("edit-listados");
+    // Coletar todos os valores dos campos de edição
+    const newData = {
+        orgName: document.getElementById("edit-institution-name").value,
+        email: document.getElementById("edit-email").value,
+        password: document.getElementById("edit-password").value,
+        cpf: document.getElementById("edit-cpf").value,
+        rg: document.getElementById("edit-rg").value,
+        phone: document.getElementById("edit-phone").value,
+        genero: document.getElementById("edit-genero").value,
+        estadoCivil: document.getElementById("edit-estado-civil").value,
+        statusOcupacao: document.getElementById("edit-status-ocupacao").value,
+        residentes: document.getElementById("edit-residentes").value,
+        listados: document.getElementById("edit-listados").value
+    };
 
-        // Formatar os campos se as funções existirem
-        userData.cpf = typeof formatarCPF === 'function' ? formatarCPF(userData.cpf) : userData.cpf;
-        userData.rg = typeof formatarRG === 'function' ? formatarRG(userData.rg) : userData.rg;
-        userData.phone = typeof formatarTelefone === 'function' ? formatarTelefone(userData.phone) : userData.phone;
-
-        console.log("Dados atualizados:", userData);
-        
-        // Atualizar a UI
-        updateUI();
-        closeEditModal();
-        
-        // Feedback visual para o usuário
-        mostrarModal("Alterações salvas com sucesso!");
-        
-        return true;
-    } catch (error) {
-        console.error("Erro ao salvar alterações:", error);
-        mostrarModal("Erro ao salvar alterações. Por favor, tente novamente.");
-        return false;
+    // Validar campos obrigatórios
+    if (!newData.orgName || !newData.email || !newData.password) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
     }
+
+    // Atualizar os dados do usuário
+    Object.assign(userData, newData);
+
+    // Atualizar a interface
+    updateUI();
+
+    // Fechar o modal
+    closeEditModal();
+
+    // Feedback para o usuário
+    console.log("Alterações salvas com sucesso!", userData);
 }
 function openPhotoModal() {
     if (photoModal) {
@@ -261,10 +202,19 @@ function savePhoto() {
 
 // Função que é executada quando o DOM estiver pronto
 document.addEventListener("DOMContentLoaded", function() {
-  // Inicializar UI
   updateUI();
-  
-  // Adicionar link para Material Icons
+    
+    // Configurar o botão de salvar
+    const saveButton = document.querySelector("#edit-modal .save-button");
+    if (saveButton) {
+        saveButton.onclick = saveChanges;
+    }
+    
+    // Configurar o botão de editar foto
+    const editPhotoButton = document.querySelector(".edit-overlay");
+    if (editPhotoButton) {
+        editPhotoButton.onclick = openPhotoModal;
+    }
   if (!document.querySelector('link[href*="material-symbols"]')) {
       const materialIconsLink = document.createElement('link');
       materialIconsLink.rel = 'stylesheet';
@@ -1237,9 +1187,3 @@ document.addEventListener('DOMContentLoaded', function() {
   `;
   document.head.appendChild(style);
 });
-window.openEditModal = openEditModal;
-window.closeEditModal = closeEditModal;
-window.saveChanges = saveChanges;
-window.openPhotoModal = openPhotoModal;
-window.closePhotoModal = closePhotoModal;
-window.savePhoto = savePhoto;
