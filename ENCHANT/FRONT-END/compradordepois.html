@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enchant</title>
+  <link rel="shortcut icon" href="https://i.ibb.co/7NybZ3W7/1.png" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Open+Sans:wght@300..800&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome + Material Symbols -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+
+  <!-- Estilo local -->
+  <link rel="stylesheet" href="./CSS/compradordepois.css">
+  <link
+   rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+ />
+ <link
+   rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+ />
+ <link rel="stylesheet" href="https://phosphoricons.com?q=%22menu%22" />
+ <link rel="stylesheet" href="CSS/headercorreta.css" />
+
+</head>
+
+<body>
+  <!-- Navegação -->
+  <!-- Atualização da seção do navbar -->
+<header>
+  <nav class="navbar navbar-expand-lg">
+   <div class="container-fluid">
+     <!-- Botão esquerdo para controlar a sidebar -->
+     <button
+       id="icone2"
+       class="navbar-toggler"
+       type="button"
+       onclick="toggleSidebar()"
+     >
+       <i style="font-size: 12px" class="navbar-toggler-icon"></i>
+     </button>
+  
+  
+     <!-- Input File -->
+     <button class="upload-btn" id="imgheader">
+       <label for="imageUpload"
+         ><i class="bi bi-plus" id="btnn"></i
+       ></label>
+       <input
+         type="file"
+         id="imageUpload"
+         accept="image/*"
+         placeholder="Insira sua logo"
+       />
+     </button>
+  
+  
+     <!-- Botão direito para outras funcionalidades -->
+     <button
+       id="icone"
+       class="navbar-toggler"
+       type="button"
+       data-bs-toggle="collapse"
+       data-bs-target="#navbarNav"
+     >
+       <span style="font-size: 20px" class="bi bi-three-dots"></span>
+     </button>
+    
+     <!-- Navbar collapse - modificado para mobile -->
+     <div class="collapse navbar-collapse item" id="navbarNav">
+       <ul id="abcd" class="navbar-nav mx-auto">
+         <li class="nav-item">
+           <a class="nav-link" href="quemsomos2.html">Quem somos?</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="saibamais2.html">Saiba mais</a>
+         </li>
+         <li class="nav-item profile-dropdown">
+           <button
+             class="btn btn-link"
+             id="usuario"
+             style="font-size: 14px; text-decoration: none"
+           >
+             <img
+               id="userPhoto"
+               src=""
+               alt="Foto do Usuário"
+               style="
+                 width: 40px;
+                 height: 40px;
+                 border-radius: 50%;
+                 object-fit: cover;
+                 display: none;
+               "
+             />
+             <i
+               id="userIcon"
+               class="bi bi-person-circle"
+               style="font-size: 35px; color: #ccc"
+             ></i>
+             <span>Nome do Usuário</span>
+           </button>
+           <!-- Dropdown menu movido para dentro do item de lista -->
+           <div id="dropzinho" class="dropdown-menu">
+             <a class="dropdown-item" href="#"
+               ><i class="bi bi-person"></i> Perfil</a
+             >
+             <a class="dropdown-item" href="inicio1.html"
+               ><i class="bi bi-box-arrow-right"></i> Sair</a
+             >
+           </div>
+         </li>
+       </ul>
+     </div>
+   </div>
+  </nav>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <a href="#"><i class="bi bi-list"></i><span></span></a>
+      <a href="mapa.html"
+        ><i class="bi bi-map"></i
+        ><span style="font-size: 14px">Mapa</span></a
+      >
+      <a href="pontosdeabrigo.html"
+        ><i class="bi bi-geo"></i
+        ><span style="font-size: 14px">Pontos de abrigo</span></a
+      >
+      <a href="ajudamedica.html"
+        ><i class="bi bi-truck"></i
+        ><span style="font-size: 14px">Ajuda médica</span></a
+      >
+      <a href="doacao.html"
+        ><i class="bi bi-box"></i
+        ><span style="font-size: 14px">Doação</span></a
+      >
+      <a href="pontosdecoleta.html"
+        ><i class="bi bi-geo-alt-fill"></i
+        ><span style="font-size: 14px">Pontos de coleta</span></a
+      >
+      <a href="historicodedoacoes.html"
+        ><i class="bi bi-journal"></i
+        ><span style="font-size: 14px">Histórico de doação</span></a
+      >
+      <a href="politica2.html"
+        ><i class="bi bi-file-earmark"></i
+        ><span style="font-size: 14px">Política de privacidade</span></a
+      >
+      <a href="ajuda.html"
+        ><i class="bi bi-info-circle"></i
+        ><span style="font-size: 14px">Ajuda</span></a
+      >
+    </nav>
+  </aside>
+
+  <div class="container-pai">
+    
+  <!-- Imagem destaque -->
+  <img src="IMAGENS/feijao.png" id="imagem1" alt="Imagem de um saco de feijao">
+  <div class="container2">
+      <div class="retangulo"></div>
+      <h3>ENCHANT</h3>
+      <p>
+        Este é o site de reunião a comunidade que precisa ser acolhida e que pode acolher, 
+        confira todas<br>as ferramentas do site e utilize para a sua segurança.
+      </p>
+      <a href="#"><button class="btn btn-brown" type="button" id="veja">Veja onde a água mudou tudo</button></a>
+      <div id="contem-linha">
+        <hr class="linha-separadora1">
+        <hr class="linha-separadora1">
+      </div>
+      </div>
+      <div class="container3">
+        <div id="quadrado"><p class="titulo">“Maria Bethânia faz apelo após enchente em Santo Amaro deixar 80 famílias desabrigadas: 'A natureza grita'"</p>
+          <p class="texto">“Temporal atingiu Santo Amaro na madrugada de sábado (3). Em apenas 24h, a cidade registrou 180 mm de chuva.<br><br>
+
+            A cantora Maria Bethânia usou as redes sociais para a chamar a atenção e fazer um apelo às autoridades e à população e chamar a atenção para os estragos causados pela chuva na sua cidade natal, Santo Amaro, no recôncavo da Bahia.
+            O rio Subaé, que cruza o município, transbordou após as fortes chuvas na madrugada de sábado (3). Em apenas 24h, a cidade registrou mais de 180 mm de chuva. Com isso, 300 famílias foram afetadas e 80 estão desabrigadas.” - G1 Bahia.</p>
+          </div>
+        <img src="IMAGENS/pessoasmorrendo.png" id="imagem2" alt="Pessoas na enchente">
+      </div>
+      <div class="container4">
+        <div class="card">
+          <img src="IMAGENS/card2009.png" alt="Imagem do card">
+          <div class="card-texto">
+            <h3>Abril e maio de 2009</h3>
+            <p>Em 2009, fortes chuvas causaram enchentes graves no sul da Bahia, 
+              especialmente em Itabuna, deixando mais de 40 mil desabrigados. 
+              O transbordamento do Rio Cachoeira e a falta de infraestrutura agravaram os danos.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="IMAGENS/card2011.png" alt="Imagem do card">
+          <div class="card-texto">
+            <h3>Enchentes de 2011</h3>
+            <p>Chuvas fortes entre novembro e dezembro causaram grandes enchentes em várias cidades da Bahia, 
+              como Feira de Santana e Ilhéus. Muitas famílias foram desabrigadas e houve mortes.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="IMAGENS/card2020.png" alt="Imagem do card">
+          <div class="card-texto">
+            <h3>Tempestades de 2020:</h3>
+            <p>Chuvas intensas em novembro e dezembro causaram alagamentos, 
+              deslizamentos de terra e danos em Salvador e outras cidades, com muitos desabrigados e infraestruturas destruídas.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container5">
+        <div id="secao-grafico">
+          <h3>O que queremos alcançar?</h3>
+          <p>Conectamos ajuda e informação para salvar vidas com doações,<br>serviços, mapas de risco e pontos de coleta.</p>
+          <hr class="linha-separadora">
+          <div id="pontos">
+            <p><div class="quadrado-laranja"></div>Pontos de coleta</p>
+            <p><div class="quadrado-laranja"></div>Pontos de abrigo</p>
+            <p><div class="quadrado-laranja"></div>Auxílio para denúncias</p>
+
+          </div>
+        </div>
+        <div class="grafico-container">
+          <svg viewBox="0 0 500 300" class="grafico">
+          <rect x="0" y="0" width="500" height="300" fill="rgba(143, 89, 39, 0.05)" />
+          <!-- Linhas horizontais -->
+          <line x1="50" y1="250" x2="480" y2="250" class="linha-grade"/>
+          <line x1="50" y1="200" x2="480" y2="200" class="linha-grade"/>
+          <line x1="50" y1="150" x2="480" y2="150" class="linha-grade"/>
+          <line x1="50" y1="100" x2="480" y2="100" class="linha-grade"/>
+          <line x1="50" y1="50" x2="480" y2="50" class="linha-grade"/>
+
+          <text x="10" y="255" font-size="12" fill="#444">0</text>
+          <text x="10" y="205" font-size="12" fill="#444">50</text>
+          <text x="10" y="155" font-size="12" fill="#444">100</text>
+          <text x="10" y="105" font-size="12" fill="#444">150</text>
+          <text x="10" y="55"  font-size="12" fill="#444">200</text>
+
+          <!-- Eixo X - Anos -->
+          <text x="45"  y="270" font-size="12" fill="#222">2010</text>
+          <text x="95"  y="270" font-size="12" fill="#222">2012</text>
+          <text x="145" y="270" font-size="12" fill="#222">2014</text>
+          <text x="195" y="270" font-size="12" fill="#222">2016</text>
+          <text x="245" y="270" font-size="12" fill="#222">2018</text>
+          <text x="295" y="270" font-size="12" fill="#222">2022</text>
+          <text x="345" y="270" font-size="12" fill="#222">2024</text>
+
+          <!-- Linha do gráfico -->
+          <polyline 
+            fill="none" 
+            stroke="#8B5E00" 
+            stroke-width="2"
+            points="50,200 100,170 150,190 200,140 250,90 300,50 350,110" 
+          />
+
+          <!-- Pontos do gráfico -->
+          <circle cx="50" cy="200" r="3" fill="#8B5E00"/>
+          <circle cx="100" cy="170" r="3" fill="#8B5E00"/>
+          <circle cx="150" cy="190" r="3" fill="#8B5E00"/>
+          <circle cx="200" cy="140" r="3" fill="#8B5E00"/>
+          <circle cx="250" cy="90" r="3" fill="#8B5E00"/>
+          <circle cx="300" cy="50" r="3" fill="#8B5E00"/>
+          <circle cx="350" cy="110" r="3" fill="#8B5E00"/>
+          </svg>
+        </div>
+      </div>
+      
+  </div>
+
+  <br>
+  <br>
+    <!-- Rodapé -->
+    <footer>
+      <div class="footer-container">
+        <!-- Logo e descrição -->
+        <div class="footer-left">
+          <button class="upload-btn" id="imgfooter">
+            <label for="imgUpload"><i class="bi bi-plus" id="btnn2"></i></label>
+            <input type="file" id="imgUpload" accept="image/*" />
+          </button>
+   
+   
+          <p>
+            De forma alguma o site foi criado com o intuito de desviar os termos
+            relacionados à política de privacidade do cadastrante. O site está
+            disponível para toda e qualquer ajuda em relação aos contatos. O
+            site que aqui explica não aceita qualquer violência verbal, sendo
+            contra toda e qualquer atividade agressiva.
+          </p>
+          <p>© 2025 ENCHANT Brasil</p>
+        </div>
+   
+   
+        <!-- Links de navegação -->
+        <div class="footer-right">
+          <div class="footer-column">
+            <h3>MAIS INFORMAÇÕES</h3>
+            <a
+              href="saibamais1.html"
+              title="Conheça mais sobre o ENCHANT - clique"
+              >Conheça mais sobre o site</a
+            >
+          </div>
+          <div class="footer-column" title="PROTEÇÃO DE DADOS - clique">
+            <h3>PROTEÇÃO DE DADOS</h3>
+            <a href="politica1.html">Política de privacidade</a>
+          </div>
+          <div class="footer-column" title="ACOMPANHE NOSSAS REDES - clique">
+            <h3>ACOMPANHE NOSSAS REDES</h3>
+   
+   
+            <button id="botao">Instagram</button>
+            <button id="facebook">Facebook</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+          <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"
+          ></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Bootstrap JS e Popper -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="JS/headercorreta.js"></script>
+
+</body>
+</html>
