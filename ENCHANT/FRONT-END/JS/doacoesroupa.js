@@ -1,123 +1,166 @@
-const img1 = document.getElementById("img1");
-const img2 = document.getElementById("img2");
-const img3 = document.getElementById("img3");
-const img4 = document.getElementById("img4");
-const roupasSection = document.getElementById("roupas");
-const calcadosSection = document.getElementById("calcados");
-const btnAvancar = document.getElementById("bottao");
-const btnVoltar = document.getElementById("bbotao");
-const roupasTab = document.getElementById("roupas-tab");
-const calcadosTab = document.getElementById("calcados-tab");
-
-// O problema é que existem DOIS botões com o mesmo ID "bbtn" no seu HTML!
-// Vamos pegar os botões de enviar de forma mais específica
-const btnEnviarRoupas = document.querySelector("#roupas #bbtn");
-const btnEnviarCalcados = document.querySelector("#calcados #bbtn");
-
-// Inicializando os modais do Bootstrap
-const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
-const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
-
-// Botões de fechar modais
-document.getElementById("closeConfirmModal").addEventListener("click", () => {
-    confirmModal.hide();
-});
-
-document.getElementById("closeErrorModal").addEventListener("click", () => {
-    errorModal.hide();
-});
-
-// Botões fechar no "×"
-document.querySelectorAll(".btn-close").forEach(button => {
-    button.addEventListener("click", (e) => {
-        const modalEl = e.target.closest('.modal');
-        const modal = bootstrap.Modal.getInstance(modalEl);
-        if (modal) modal.hide();
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos do formulário de roupas
+    const roupasQualidade = document.getElementById('roupasqualidade');
+    const roupasQuantidade = document.getElementById('roupasquantidade');
+    const roupasDescricao = document.getElementById('roupasdescricao'); // Este é o campo "Tamanho" no HTML
+    const roupasTipo = document.getElementById('roupastipo'); // Este é o campo "Tipo" no HTML
+    
+    // Elementos do formulário de calçados
+    const calcadosQualidade = document.getElementById('calcadosqualidade');
+    const calcadosQuantidade = document.getElementById('calcadosquantidade');
+    const calcadosDescricao = document.getElementById('calcadosdescricao'); // Este é o campo "Tamanho" no HTML
+    
+    // Botões de navegação
+    const botaoAvancar = document.getElementById('bottao');
+    const botaoVoltar = document.getElementById('bbotao');
+    const botaoEnviar = document.getElementById('bbtn');
+    
+    // Imagens de fundo
+    const img1 = document.getElementById('img1');
+    const img2 = document.getElementById('img2');
+    const img3 = document.getElementById('img3');
+    const img4 = document.getElementById('img4');
+    
+    // Divs de seção
+    const roupasDiv = document.getElementById('roupas');
+    const calcadosDiv = document.getElementById('calcados');
+    
+    // Tabs
+    const roupasTab = document.getElementById('roupas-tab');
+    const calcadosTab = document.getElementById('calcados-tab');
+    
+    // Modais
+    const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+    const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+    const erroSenhaModal = new bootstrap.Modal(document.getElementById('erroSenhaModal'));
+    
+    // Mostrar modal inicial quando a página carregar
+    mostrarModalInicial();
+    
+    // Configurar visualização inicial
+    mostrarSecaoRoupas();
+    mostrarImagem1();
+    
+    // Event listeners para tabs
+    roupasTab.addEventListener('click', function() {
+        mostrarSecaoRoupas();
+        mostrarImagem1();
     });
-});
-
-// Function to show clothes section
-function showRoupas() {
-    roupasSection.style.display = "block";
-    calcadosSection.style.display = "none";
-    img1.style.display = "block";
-    img2.style.display = "none";
-    img3.style.display = "none";
-    img4.style.display = "none";
     
-    // Update active tab
-    roupasTab.classList.add("active");
-    calcadosTab.classList.remove("active");
-}
-
-// Function to show shoes section
-function showCalcados() {
-    roupasSection.style.display = "none";
-    calcadosSection.style.display = "block";
+    calcadosTab.addEventListener('click', function() {
+        mostrarSecaoCalcados();
+        mostrarImagem1();
+    });
     
-    // Update active tab
-    roupasTab.classList.remove("active");
-    calcadosTab.classList.add("active");
-}
-
-// Function to check if ALL fields in a form section are filled
-function isFormSectionComplete(formId) {
-    const formSection = document.getElementById(formId);
-    const inputs = formSection.querySelectorAll('input, select');
+    // Event listener para botão Avançar - MODIFICADO para não verificar campos
+    botaoAvancar.addEventListener('click', function() {
+        // Apenas muda para a próxima seção sem verificar campos
+        mostrarSecaoCalcados();
+        mostrarImagem1();
+    });
     
-    for (let input of inputs) {
-        // Skip hidden inputs or inputs with type="hidden"
-        if (input.type === 'hidden' || getComputedStyle(input).display === 'none') {
-            continue;
-        }
+    // Event listener para botão Voltar
+    botaoVoltar.addEventListener('click', function() {
+        mostrarSecaoRoupas();
+        mostrarImagem1();
+    });
+    
+    // Event listener para botão Enviar
+    botaoEnviar.addEventListener('click', function() {
+        const roupasPreenchido = validarFormularioRoupas();
+        const calcadosPreenchido = validarFormularioCalcados();
         
-        if (input.tagName === 'SELECT') {
-            if (input.selectedIndex <= 0) return false;
+        if (roupasPreenchido || calcadosPreenchido) {
+            if (roupasPreenchido && !calcadosPreenchido) {
+                // Se apenas roupas estiver preenchido
+                mostrarImagem2();
+                mostrarConfirmacao('Doação de roupas registrada com sucesso!');
+            } else if (!roupasPreenchido && calcadosPreenchido) {
+                // Se apenas calçados estiver preenchido
+                mostrarImagem2();
+                mostrarConfirmacao('Doação de calçados registrada com sucesso!');
+            } else {
+                // Se ambos estiverem preenchidos
+                mostrarImagem2(); // ou img4, dependendo da preferência
+                mostrarConfirmacao('Doação de roupas e calçados registrada com sucesso!');
+            }
         } else {
-            if (input.value.trim() === '') return false;
+            mostrarErro('Por favor, preencha pelo menos um dos formulários (Roupas ou Calçados) antes de enviar.');
         }
+    });
+    
+    // Funções auxiliares
+    function validarFormularioRoupas() {
+        return roupasQualidade.value !== '' && 
+               roupasQuantidade.value !== '' && 
+               roupasDescricao.value !== '' && 
+               roupasTipo.value !== '';
     }
     
-    return true; // All fields are filled
-}
-
-// Function to handle form submission
-function handleSubmit() {
-    // Check if all fields in at least one section have been filled
-    const roupasComplete = isFormSectionComplete('roupas');
-    const calcadosComplete = isFormSectionComplete('calcados');
+    function validarFormularioCalcados() {
+        return calcadosQualidade.value !== '' && 
+               calcadosQuantidade.value !== '' && 
+               calcadosDescricao.value !== '';
+    }
     
-    if (roupasComplete || calcadosComplete) {
-        // Show success image and modal
-        img1.style.display = "none";
-        img2.style.display = "block";
-        confirmModal.show();
-    } else {
-        // Show error modal with specific message
-        const errorMessageElement = document.querySelector("#errorModalBody p");
-        if (errorMessageElement) {
-            errorMessageElement.textContent = "Por favor, preencha todos os campos de pelo menos uma seção (Roupas ou Calçados).";
-        }
+    function mostrarSecaoRoupas() {
+        roupasDiv.style.display = 'block';
+        calcadosDiv.style.display = 'none';
+        roupasTab.classList.add('active');
+        calcadosTab.classList.remove('active');
+    }
+    
+    function mostrarSecaoCalcados() {
+        roupasDiv.style.display = 'none';
+        calcadosDiv.style.display = 'block';
+        roupasTab.classList.remove('active');
+        calcadosTab.classList.add('active');
+    }
+    
+    function mostrarImagem1() {
+        img1.style.display = 'block';
+        img2.style.display = 'none';
+        img3.style.display = 'none';
+        img4.style.display = 'none';
+    }
+    
+    function mostrarImagem2() {
+        img1.style.display = 'none';
+        img2.style.display = 'block';
+        img3.style.display = 'none';
+        img4.style.display = 'none';
+    }
+    
+    function mostrarImagem3() {
+        img1.style.display = 'none';
+        img2.style.display = 'none';
+        img3.style.display = 'block';
+        img4.style.display = 'none';
+    }
+    
+    function mostrarImagem4() {
+        img1.style.display = 'none';
+        img2.style.display = 'none';
+        img3.style.display = 'none';
+        img4.style.display = 'block';
+    }
+    
+    function mostrarErro(mensagem) {
+        document.getElementById('errorModalBody').innerHTML = `<p>${mensagem}</p>`;
         errorModal.show();
     }
-}
-
-// Event listeners para navegação
-btnAvancar.addEventListener("click", showCalcados);
-btnVoltar.addEventListener("click", showRoupas); // Botão de voltar agora realmente volta para roupas
-
-// Event listeners para envio do formulário - adicionamos aos botões específicos
-if (btnEnviarRoupas) {
-    btnEnviarRoupas.addEventListener("click", handleSubmit);
-}
-
-if (btnEnviarCalcados) {
-    btnEnviarCalcados.addEventListener("click", handleSubmit);
-}
-
-// Tab button event listeners
-roupasTab.addEventListener("click", showRoupas);
-calcadosTab.addEventListener("click", showCalcados);
-
-// Initialize the page
-showRoupas();
+    
+    function mostrarConfirmacao(mensagem) {
+        document.getElementById('confirmModalBody').innerHTML = `<p>${mensagem}</p>`;
+        confirmModal.show();
+    }
+    
+    function mostrarModalInicial() {
+        document.getElementById('erroSenhaModalBody').innerHTML = `
+            <p>Bem-vindo ao formulário de doação!</p>
+            <p>Por favor, preencha os dados das roupas ou calçados que deseja doar.</p>
+            <p>Após preencher os dados das roupas, você pode prosseguir para a página de calçados, para poder enviar sua doação!</p>
+        `;
+        erroSenhaModal.show();
+    }
+});
