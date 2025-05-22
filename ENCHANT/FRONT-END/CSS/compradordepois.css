@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#imagem1{
+  width: 100%; /* Responsivo */
+}
+
+.texto{
+  position: absolute;
+  width: 80vh;
+  margin-top: 1vh;
+  margin-left: 2.5vh;
+  font-size: 1.5vh;
+  font-weight: 300;
+  color: white;
+  text-align: justify;
+}
+
+.titulo{
+  font-size: 2vh;
+  margin-top: 5vh;
+  margin-left: 2.5vh;
+  color: white;
+}
+
+.titulo2{
+  font-size: 2vh;
+  margin-top: 5vh;
+  margin-left: 2.5vh;
+  color: rgb(0, 0, 0);
+}
+
+.texto2{
+  text-align: center;
+  text-align: justify;
+}
+
+h3{
+font-family: 'Lexend Deca';
+font-style: normal;
+font-weight: 700;
+font-size: 40px;
+line-height: 50px;
+/* identical to box height, or 125% */
+text-align: center;
+text-transform: uppercase;
+
+color: #000000;
+}
+
+#contem-linha{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5vh;
+  margin-top: 60px;
+}
+
+#imagem2{
+  width: 146vh;
+  margin-left: 13.8%;
+}
+
+.linha-separadora{
+  align-self: center;
+  width: 800px;
+  border: 2px solid black;
+  margin: 0 auto;
+}
+
+.linha-separadora1 {
+  width: 70vh;
+  border: 2px solid black;
+  align-self: left;
+}
+.linha-separadora2 {
+  width: 70vh;
+  border: 2px solid black;
+  align-self: right;
+}
+
+a{
+  text-decoration: none;
+}
+
+.container2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.container4{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #CFCFCF;
+}
+
+.container5{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.secao-grafico{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quadrado-laranja {
+  width: 16px;
+  height: 16px;
+  background-color: #d7c1ae; /* tom bege um pouco mais escuro */
+}
+
+#pontos{
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #65380F;
+}
+
+.grafico-container {
+  width: 500px;
+  height: 300px;
+  margin-left: 30px;
+}
+
+.grafico {
+  width: 100%;
+  height: 100%;
+}
+
+.linha-grade {
+  stroke: #ccc;
+  stroke-width: 1;
+}
+
+.card {
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}
+.card:hover{
+  transform: translateY(-10px);
+  transition: transform 0.3s ease;
+}
+
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-texto{
+  padding: 20px;
+  font-weight: 1px;
+}
+
+.card-texto h3 {
+  text-align: right;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #222;
+}
+
+.card-texto p {
+  font-size: 15px;
+  color: #444;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+
+#quadrado{
+  position: absolute;
+  height: 47.67vh;
+  width: 90vh;
+  background-color: black;
+  margin-top: 3vh;
+  margin-left: 31.11vh;
+  border-radius: 10px;
+}
+
+.container3{
+  position: relative;
+}
+
+
+#veja{
+  background-color: #E2CCAE;
+  color: black;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.retangulo{
+  border-top-left-radius: 400px;
+  border-top-right-radius: 400px;
+  background-color: white;
+  width: 1900px;
+  height: 40px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+.footer-container {
+  margin-left: 60px;
+}
+
+@media (max-width: 768px) {
+  .footer-container{
+    margin-left: 0;
+  }
+  .container4{
+    flex-direction: column;
+    justify-content: center;
+  }
+  .secao-grafico p{
+    font-size: 10px;
+
+  }
+}
