@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 mostrarConfirmacao('Doação de móveis registrada com sucesso!');
             } else if (!moveisPreenchido && eletroPreenchido) {
                 // Se apenas eletrodomésticos estiver preenchido
-                mostrarImagem4();
+                mostrarImagem2();
                 mostrarConfirmacao('Doação de eletrodomésticos registrada com sucesso!');
             } else {
                 // Se ambos estiverem preenchidos
