@@ -114,10 +114,14 @@ body {
 
 .button-container {
     display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+.buttoon-container {
+    display: flex;
     justify-content: space-between;
     margin-top: 2rem;
 }
-
 #img3{
     display:none;
 }
