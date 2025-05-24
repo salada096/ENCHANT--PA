@@ -358,11 +358,6 @@ input[type="number"]::-webkit-outer-spin-button {
     .navbar-nav {
         margin-left: 10px;
     }
-    
-    #doeagora {
-        margin-right: 1rem;
-        width: 8rem;
-    }
 }
 
 /* Tablets pequenos */
@@ -422,9 +417,8 @@ input[type="number"]::-webkit-outer-spin-button {
         font-size: 12px;
     }
     
+    /* Removido as alterações de tamanho do botão #doeagora para manter tamanho fixo */
     #doeagora {
-        width: 7rem;
-        font-size: 14px;
         margin-right: 0.5rem;
     }
     
